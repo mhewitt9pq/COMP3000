@@ -21,5 +21,25 @@ namespace secPass
         {
 
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            //Storing variables - Pass is stored in plaintext until encryption is implemented
+            string passName = txtName.Text;
+            string pass = txtPass.Text;
+            string confPass = txtConfPass.Text;
+
+
+
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+            {
+                MessageBox.Show("The Caps Lock key is ON.");
+            }
+        }
     }
 }
