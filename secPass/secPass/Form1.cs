@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Security.Cryptography;
+
 
 namespace secPass
 {
@@ -16,7 +18,10 @@ namespace secPass
         public Form1()
         {
             InitializeComponent();
+
+            obj_aes = new Aes();
         }
+        Aes obj_aes;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -24,6 +29,8 @@ namespace secPass
             
 
         }
+
+
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -51,6 +58,8 @@ namespace secPass
 
             MessageBox.Show(newCredential.ToString());
 
+            lblEncryptedPass.Text = obj_aes.encrypt(txtPass.Text);
+
 
         }
 
@@ -61,5 +70,6 @@ namespace secPass
                 MessageBox.Show("The Caps Lock key is ON.");
             }
         }
+
     }
 }
