@@ -19,7 +19,7 @@ namespace secPass
         {
             InitializeComponent();
 
-            Aes obj_aes = new Aes();
+            obj_aes = new Aes();
         }
         Aes obj_aes;
 
