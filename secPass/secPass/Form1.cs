@@ -19,14 +19,12 @@ namespace secPass
         {
             InitializeComponent();
 
-            obj_aes = new Aes();
+            Aes obj_aes = new Aes();
         }
         Aes obj_aes;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            
 
         }
 
@@ -53,14 +51,13 @@ namespace secPass
                 return;
             }
 
+            pass = obj_aes.encrypt(pass);
+
             Credential newCredential = new Credential(passName, pass);
 
+            lblEncryptedPass.Text = pass;
 
-            MessageBox.Show(newCredential.ToString());
-
-            lblEncryptedPass.Text = obj_aes.encrypt(txtPass.Text);
-
-
+            MessageBox.Show("Thank you for storing {0}", newCredential.passName);
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
@@ -71,5 +68,9 @@ namespace secPass
             }
         }
 
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace secPass
         public Aes()
         {
             cryptProvider = new AesCryptoServiceProvider();
-
             cryptProvider.BlockSize = 128;
             cryptProvider.KeySize = 256;
             cryptProvider.GenerateIV();
@@ -27,11 +26,21 @@ namespace secPass
 
             byte[] encryptedBytes = transform.TransformFinalBlock(ASCIIEncoding.ASCII.GetBytes(plainTxt), 0, plainTxt.Length);
 
-            string Str = Convert.ToBase64String(encryptedBytes);
+            string encrypted =  Convert.ToBase64String(encryptedBytes);
 
+            return encrypted;
+        }
+        public String decrypt(String encryptedText)
+        {
+            ICryptoTransform transform = cryptProvider.CreateDecryptor();
 
+            byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
 
-            return Str;
+            byte[] decryptedBytes = transform.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
+
+            string decrypted = ASCIIEncoding.ASCII.GetString(decryptedBytes);
+
+            return decrypted;
         }
     }
 }

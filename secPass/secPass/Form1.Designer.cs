@@ -51,6 +51,8 @@
             this.lblPassGenerator = new System.Windows.Forms.Label();
             this.btnGeneratePass = new System.Windows.Forms.Button();
             this.lblEncryptedPass = new System.Windows.Forms.Label();
+            this.btnDecrypt = new System.Windows.Forms.Button();
+            this.lblDecrypted = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -60,6 +62,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblDecrypted);
+            this.tabPage2.Controls.Add(this.btnDecrypt);
             this.tabPage2.Controls.Add(this.lblEncryptedPass);
             this.tabPage2.Controls.Add(this.btnSubmit);
             this.tabPage2.Controls.Add(this.lblStoreNewPass);
@@ -308,11 +312,30 @@
             // lblEncryptedPass
             // 
             this.lblEncryptedPass.AutoSize = true;
-            this.lblEncryptedPass.Location = new System.Drawing.Point(558, 335);
+            this.lblEncryptedPass.Location = new System.Drawing.Point(584, 288);
             this.lblEncryptedPass.Name = "lblEncryptedPass";
             this.lblEncryptedPass.Size = new System.Drawing.Size(129, 13);
             this.lblEncryptedPass.TabIndex = 17;
             this.lblEncryptedPass.Text = "Encryped text shows here";
+            // 
+            // btnDecrypt
+            // 
+            this.btnDecrypt.Location = new System.Drawing.Point(638, 162);
+            this.btnDecrypt.Name = "btnDecrypt";
+            this.btnDecrypt.Size = new System.Drawing.Size(75, 23);
+            this.btnDecrypt.TabIndex = 19;
+            this.btnDecrypt.Text = "Decrypt";
+            this.btnDecrypt.UseVisualStyleBackColor = true;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
+            // 
+            // lblDecrypted
+            // 
+            this.lblDecrypted.AutoSize = true;
+            this.lblDecrypted.Location = new System.Drawing.Point(594, 224);
+            this.lblDecrypted.Name = "lblDecrypted";
+            this.lblDecrypted.Size = new System.Drawing.Size(150, 13);
+            this.lblDecrypted.TabIndex = 20;
+            this.lblDecrypted.Text = "Decrypted pass will show here";
             // 
             // Form1
             // 
@@ -361,6 +384,8 @@
         private System.Windows.Forms.Label lblSelectName;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblEncryptedPass;
+        private System.Windows.Forms.Button btnDecrypt;
+        private System.Windows.Forms.Label lblDecrypted;
     }
 }
 
