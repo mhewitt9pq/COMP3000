@@ -35,30 +35,26 @@ namespace secPass
             
             string passName = txtName.Text;
 
-            string pass = obj_aes.encrypt(txtPass.Text);
-            string confPass = txtConfPass.Text;
-
-
-
             //Validation
             if (String.IsNullOrWhiteSpace(passName) ||
-                String.IsNullOrWhiteSpace(pass) ||
-                String.IsNullOrWhiteSpace(confPass))
+                String.IsNullOrWhiteSpace(txtPass.Text) ||
+                String.IsNullOrWhiteSpace(txtConfPass.Text))
             {
                 MessageBox.Show("All fields must be filled. Please enter a name and your password");
                 return;
             }
-            if (pass != confPass)
+            if (txtPass.Text != txtConfPass.Text)
             {
                 MessageBox.Show("Both passwords must match. Please re enter your password");
                 return;
             }
-
-            Credential newCredential = new Credential(passName, pass);
-
-            lblEncryptedPass.Text = pass;
-
-            MessageBox.Show("Thank you for storing ", newCredential.passName);
+            else if (txtPass.Text == txtConfPass.Text)
+            {
+                string pass = obj_aes.encrypt(txtPass.Text);
+                Credential newCredential = new Credential(passName, pass);
+                lblEncryptedPass.Text = pass;
+                MessageBox.Show("Thank you for storing ", newCredential.passName);
+            }
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
