@@ -32,10 +32,13 @@ namespace secPass
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //Storing variables - Pass is stored in plaintext until encryption is implemented
+            
             string passName = txtName.Text;
-            string pass = txtPass.Text;
+
+            string pass = obj_aes.encrypt(txtPass.Text);
             string confPass = txtConfPass.Text;
+
+
 
             //Validation
             if (String.IsNullOrWhiteSpace(passName) ||
@@ -51,13 +54,11 @@ namespace secPass
                 return;
             }
 
-            pass = obj_aes.encrypt(pass);
-
             Credential newCredential = new Credential(passName, pass);
 
             lblEncryptedPass.Text = pass;
 
-            MessageBox.Show("Thank you for storing {0}", newCredential.passName);
+            MessageBox.Show("Thank you for storing ", newCredential.passName);
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
