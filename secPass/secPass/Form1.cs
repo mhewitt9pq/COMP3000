@@ -28,11 +28,8 @@ namespace secPass
 
         }
 
-
-
         private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            
+        {            
             string passName = txtName.Text;
 
             //Validation
