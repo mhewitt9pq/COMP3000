@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\secPass",
+    "\\secPass\\secPass"
   ],
-  "SelectedNode": "\\secPass.sln",
+  "SelectedNode": "\\secPass\\secPass\\Aes.cs",
   "PreviewInSolutionExplorer": false
 }

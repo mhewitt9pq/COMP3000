@@ -10,16 +10,34 @@ namespace secPass
     class Aes
     {
         AesCryptoServiceProvider cryptProvider;
+
+        /// <summary>
+        /// AES encryption/decryption handler
+        /// </summary>
         public Aes()
         {
+            //Allow this conf to be custom - Settings tab for user to conf
+
+            //How to store key securely so cn decrypt when application is restarted
+            //Hashing masterkey to create const key
+
             cryptProvider = new AesCryptoServiceProvider();
             cryptProvider.BlockSize = 128;
             cryptProvider.KeySize = 256;
+
             cryptProvider.GenerateIV();
             cryptProvider.GenerateKey();
+
             cryptProvider.Mode = CipherMode.CBC;
             cryptProvider.Padding = PaddingMode.PKCS7;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="plainTxt"></param>
+        /// <returns></returns>
+
         public String encrypt(String plainTxt)
         {
             ICryptoTransform transform = cryptProvider.CreateEncryptor();
@@ -30,6 +48,11 @@ namespace secPass
 
             return encrypted;
         }
+        /// <summary>
+        /// Decrypt using AES256
+        /// </summary>
+        /// <param name="encryptedText">Ciphertext</param>
+        /// <returns></returns>
         public String decrypt(String encryptedText)
         {
             ICryptoTransform transform = cryptProvider.CreateDecryptor();
