@@ -16,6 +16,16 @@ namespace secPass
         /// </summary>
         public Aes()
         {
+
+        }
+
+        /// <summary>
+        /// Encrypting using AES256
+        /// </summary>
+        /// <param name="plainTxt"></param>
+        /// <returns></returns>
+        public String encrypt(String plainTxt, String mastPass)
+        {
             //Allow this conf to be custom - Settings tab for user to conf
 
             //How to store key securely so cn decrypt when application is restarted
@@ -26,20 +36,13 @@ namespace secPass
             cryptProvider.KeySize = 256;
 
             cryptProvider.GenerateIV();
+
             cryptProvider.GenerateKey();
 
             cryptProvider.Mode = CipherMode.CBC;
             cryptProvider.Padding = PaddingMode.PKCS7;
-        }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="plainTxt"></param>
-        /// <returns></returns>
 
-        public String encrypt(String plainTxt)
-        {
             ICryptoTransform transform = cryptProvider.CreateEncryptor();
 
             byte[] encryptedBytes = transform.TransformFinalBlock(ASCIIEncoding.ASCII.GetBytes(plainTxt), 0, plainTxt.Length);
@@ -48,6 +51,7 @@ namespace secPass
 
             return encrypted;
         }
+
         /// <summary>
         /// Decrypt using AES256
         /// </summary>

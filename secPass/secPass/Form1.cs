@@ -47,7 +47,7 @@ namespace secPass
             }
             else if (txtPass.Text == txtConfPass.Text)
             {
-                string pass = obj_aes.encrypt(txtPass.Text);
+                string pass = obj_aes.encrypt(txtPass.Text, txtMasterPass.Text);
                 Credential newCredential = new Credential(passName, pass);
                 lblEncryptedPass.Text = pass;
                 MessageBox.Show("Thank you for storing ", newCredential.passName);
@@ -66,5 +66,6 @@ namespace secPass
         {
             lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
         }
+
     }
 }
