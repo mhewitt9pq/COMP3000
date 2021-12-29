@@ -19,9 +19,9 @@ namespace secPass
         {
             InitializeComponent();
 
-            obj_aes = new Aes();
+            obj_aes = new secController();
         }
-        Aes obj_aes;
+        secController obj_aes;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -64,7 +64,7 @@ namespace secPass
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
+            //lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
         }
 
     }
