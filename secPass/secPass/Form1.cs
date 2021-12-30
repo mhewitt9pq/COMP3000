@@ -26,6 +26,7 @@ namespace secPass
             obj_aes = new secController();
         }
         secController obj_aes;
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -42,7 +43,7 @@ namespace secPass
         {
             string fileName = "csvDB.csv";
             StringBuilder csvContent = new StringBuilder();
-            csvContent.AppendLine("Account,Encrypted Credential");            
+            csvContent.AppendLine("Account,Password");            
             if  (!File.Exists(fileName))
             {
                 File.AppendAllText(fileName, csvContent.ToString());
@@ -139,9 +140,11 @@ namespace secPass
             }
         }*/
         
-
-
-
+        /// <summary>
+        /// Alert if caps lock is on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
             if (Control.IsKeyLocked(Keys.CapsLock))
@@ -150,20 +153,37 @@ namespace secPass
             }
         }
 
+
+        /// <summary>
+        /// Decrypts ciphertext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
             //lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
         }
 
+
+        /// <summary>
+        /// Reads the csv and populates datagrid with data and stores data in array
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGetPass_Click(object sender, EventArgs e)
         {
-            using (var streamReader = new StreamReader("csvDB.csv"))
+            //getDataToString();
+            csvToList();
+            using (var reader = new StreamReader("csvDB.csv"))
             {
-                using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+                using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     csvReader.Context.RegisterClassMap<CredClassMap>();
-                    var credList = csvReader.GetRecords<Credential>().ToList();
-                    dgCreds.DataSource = credList;
+
+                    credentialBindingSource.DataSource = csvReader.GetRecords<Credential>();
+
+                    //Populates datagridview using bindingsource
+                    var credList = csvReader.GetRecords<Credential>().ToArray();
                 }
             }
 
@@ -173,14 +193,60 @@ namespace secPass
             sr.Close();*/
         }
 
+
+
+        /*static List<secPass.Credential> getDataToString()
+        {
+            using (var reader = new StreamReader("csvDB.csv"))
+            {
+                using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    csvReader.Context.RegisterClassMap<CredClassMap>();
+                    var credList = csvReader.GetRecords<Credential>().ToList();
+                    return credList;
+                }
+            }            
+        }*/
+
+        public static List<String> csvToList()
+        {
+            string delimiter = ",";
+            string fileName = "csvDB.csv";
+
+
+            string[] csvLines = System.IO.File.ReadAllLines(fileName);
+
+            var credList = new List<Credential>();
+
+            for (int i = 1; i < csvLines.Length; i++)
+            {
+                Credential tCred = new Credential(csvLines[i]);
+                credList.Add(tCred);
+            }
+
+            var accounts = new List<string>();
+
+            //Creates list of accounts
+            for (int i = 1; i < csvLines.Length; i++)
+            {
+                string[] rowData = csvLines[i].Split(delimiter.ToCharArray());
+                accounts.Add(rowData[0]);
+            }
+            return accounts;
+
+        }
+
+         
+        /// <summary>
+        /// Maps the input data to the properties of the credentials object
+        /// </summary>
         public class CredClassMap : ClassMap<Credential>
         {
             public CredClassMap()
             {
                 Map(m => m.Account).Name("Account");
-                Map(m => m.Password).Name("Encrypted Credential");
+                Map(m => m.Password).Name("Password");
             }
         }
-
     }
 }

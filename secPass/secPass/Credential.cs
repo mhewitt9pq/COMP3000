@@ -20,10 +20,18 @@ namespace secPass
         public string Password { get; set; }
 
         //Contructor
-        /*public Credential()
+        public Credential(string rowData)
         {
-            
-        }*/
+            string[] data = rowData.Split(',');
+
+            //Parse the data into the object's properties
+            this.Account = data[0];
+            this.Password = data[1];
+        }
+        public Credential()
+        {
+
+        }
 
 
         /*public override string ToString()
