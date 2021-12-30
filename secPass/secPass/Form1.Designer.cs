@@ -55,11 +55,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblPassGenerator = new System.Windows.Forms.Label();
             this.btnGeneratePass = new System.Windows.Forms.Button();
+            this.dgCreds = new System.Windows.Forms.DataGridView();
+            this.btnGetPass = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCreds)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -290,6 +293,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnGetPass);
+            this.tabPage1.Controls.Add(this.dgCreds);
             this.tabPage1.Controls.Add(this.lblSelectName);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -303,7 +308,7 @@
             // lblSelectName
             // 
             this.lblSelectName.AutoSize = true;
-            this.lblSelectName.Location = new System.Drawing.Point(265, 126);
+            this.lblSelectName.Location = new System.Drawing.Point(290, 340);
             this.lblSelectName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSelectName.Name = "lblSelectName";
             this.lblSelectName.Size = new System.Drawing.Size(35, 13);
@@ -313,7 +318,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(316, 123);
+            this.comboBox1.Location = new System.Drawing.Point(339, 335);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(183, 21);
@@ -359,6 +364,24 @@
             this.btnGeneratePass.Text = "Generate Password";
             this.btnGeneratePass.UseVisualStyleBackColor = true;
             // 
+            // dgCreds
+            // 
+            this.dgCreds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCreds.Location = new System.Drawing.Point(277, 24);
+            this.dgCreds.Name = "dgCreds";
+            this.dgCreds.Size = new System.Drawing.Size(301, 289);
+            this.dgCreds.TabIndex = 2;
+            // 
+            // btnGetPass
+            // 
+            this.btnGetPass.Location = new System.Drawing.Point(97, 238);
+            this.btnGetPass.Name = "btnGetPass";
+            this.btnGetPass.Size = new System.Drawing.Size(93, 23);
+            this.btnGetPass.TabIndex = 3;
+            this.btnGetPass.Text = "Retrieve data";
+            this.btnGetPass.UseVisualStyleBackColor = true;
+            this.btnGetPass.Click += new System.EventHandler(this.btnGetPass_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +400,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCreds)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,6 +434,8 @@
         private System.Windows.Forms.Label lblDecrypted;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMasterPass;
+        private System.Windows.Forms.DataGridView dgCreds;
+        private System.Windows.Forms.Button btnGetPass;
     }
 }
 

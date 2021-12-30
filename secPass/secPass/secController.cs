@@ -119,8 +119,7 @@ namespace secPass
         private string encryptCryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
         {
             byte[] cipherText = Convert.FromBase64String(cipherTextString);
-            string plaintext = null;
-            //###################################################
+            string plaintext = null;            
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Key;
