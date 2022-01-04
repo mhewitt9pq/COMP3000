@@ -19,18 +19,24 @@ namespace secPass
 {
     public partial class Form1 : Form
     {
+
+
+
         public Form1()
         {
             InitializeComponent();
 
             obj_aes = new secController();
         }
+
         secController obj_aes;
         
 
         private void Form1_Load(object sender, EventArgs e)
         {
             string filename = createFile();
+
+            var credList = csvToList();
 
             //openFile(fileName);
         }
@@ -52,36 +58,7 @@ namespace secPass
             return fileName;
         }
 
-        /*public void openFile(string fileName)
-        {
-            //OpenFileDialog ofd = new OpenFileDialog();
-            //ofd.ShowDialog();
-
-            Credential creds = new Credential();
-
-            string[] CredentialArray;
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Credential", typeof(string));
-
-            using (StreamReader sr = new StreamReader(fileName))
-            {
-                while(!sr.EndOfStream)
-                {
-                    CredentialArray = sr.ReadLine().Split(',');
-
-                    creds.passName = CredentialArray[0];
-                    creds.pass = CredentialArray[1];
-
-                    dt.Rows.Add(CredentialArray);
-                }
-                DataView dv = new DataView(dt);
-                dgCreds.DataSource = dv;
-            }
-        }*/
         
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string passName = txtName.Text;
@@ -107,38 +84,6 @@ namespace secPass
                 //MessageBox.Show("Thank you for storing ", newCredential.passName);
             }
         }
-
-        /*public void ReadCSV(string filename)
-        {
-            try
-            {
-                // your code here 
-                string CSVFilePathName = filename;
-                string[] Lines = File.ReadAllLines(CSVFilePathName);
-                string[] Fields;
-                Fields = Lines[0].Split(new char[] { ',' });
-                int Cols = Fields.GetLength(0);
-                DataTable dt = new DataTable();
-                //1st row must be column names; force lower case to ensure matching later on.
-                for (int i = 0; i < Cols; i++)
-                    dt.Columns.Add(Fields[i].ToLower(), typeof(string));
-                DataRow Row;
-                for (int i = 1; i < Lines.GetLength(0); i++)
-                {
-                    Fields = Lines[i].Split(new char[] { ',' });
-                    Row = dt.NewRow();
-                    for (int f = 0; f < Cols; f++)
-                        Row[f] = Fields[f];
-                    dt.Rows.Add(Row);
-                }
-                dgCreds.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error is " + ex.ToString());
-                throw;
-            }
-        }*/
         
         /// <summary>
         /// Alert if caps lock is on
@@ -173,7 +118,7 @@ namespace secPass
         private void btnGetPass_Click(object sender, EventArgs e)
         {
             //getDataToString();
-            csvToList();
+            
             using (var reader = new StreamReader("csvDB.csv"))
             {
                 using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -208,7 +153,7 @@ namespace secPass
             }            
         }*/
 
-        public static List<String> csvToList()
+        public static List<Credential> csvToList()
         {
             string delimiter = ",";
             string fileName = "csvDB.csv";
@@ -224,16 +169,19 @@ namespace secPass
                 credList.Add(tCred);
             }
 
-            var accounts = new List<string>();
+
+            return credList;
 
             //Creates list of accounts
+            var accounts = new List<string>();
+
             for (int i = 1; i < csvLines.Length; i++)
             {
                 string[] rowData = csvLines[i].Split(delimiter.ToCharArray());
                 accounts.Add(rowData[0]);
             }
-            return accounts;
-
+            //Returns a list of the accounts held
+            //return accounts;
         }
 
          
