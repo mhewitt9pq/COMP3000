@@ -19,26 +19,20 @@ namespace secPass
 {
     public partial class Form1 : Form
     {
-
-
-
         public Form1()
         {
             InitializeComponent();
 
             obj_aes = new secController();
         }
-
         secController obj_aes;
-        
+
+        static List<Credential> credList = new List<Credential>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
             string filename = createFile();
-
-            var credList = csvToList();
-
-            //openFile(fileName);
+            credList = csvToList();
         }
 
         /// <summary>
@@ -49,16 +43,15 @@ namespace secPass
         {
             string fileName = "csvDB.csv";
             StringBuilder csvContent = new StringBuilder();
-            csvContent.AppendLine("Account,Password");            
+            csvContent.AppendLine("Account,Password");           
+            
             if  (!File.Exists(fileName))
             {
                 File.AppendAllText(fileName, csvContent.ToString());
-
             }
             return fileName;
         }
-
-        
+                
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string passName = txtName.Text;
@@ -66,7 +59,8 @@ namespace secPass
             //Validation
             if (String.IsNullOrWhiteSpace(passName) ||
                 String.IsNullOrWhiteSpace(txtPass.Text) ||
-                String.IsNullOrWhiteSpace(txtConfPass.Text))
+                String.IsNullOrWhiteSpace(txtConfPass.Text) ||
+                String.IsNullOrWhiteSpace(txtMasterPass.Text))
             {
                 MessageBox.Show("All fields must be filled. Please enter a name and your password");
                 return;
@@ -78,10 +72,23 @@ namespace secPass
             }
             else if (txtPass.Text == txtConfPass.Text)
             {
-                string pass = obj_aes.encrypt(txtPass.Text, txtMasterPass.Text);
-                //Credential newCredential = new Credential(passName, pass);
-                lblEncryptedPass.Text = pass;
-                //MessageBox.Show("Thank you for storing ", newCredential.passName);
+                string pass = obj_aes.encrypt(txtPass.Text, txtMasterPass.Text);                
+
+                Credential tempCred = new Credential(passName + "," + pass);
+
+                credList.Add(tempCred);
+
+                var custDataSource = credList.Select(x => new
+                {
+                    Account = x.Account,
+                    Password = x.Password,
+                }).ToList();
+
+                //This will assign the datasource. All the columns you listed will show up, and every row
+                //of data in the list will populate into the DataGridView.
+                credentialBindingSource.DataSource = custDataSource;
+
+                MessageBox.Show(string.Format("Thank you for storing {0}", tempCred.Account));
             }
         }
         
@@ -98,7 +105,6 @@ namespace secPass
             }
         }
 
-
         /// <summary>
         /// Decrypts ciphertext
         /// </summary>
@@ -108,7 +114,6 @@ namespace secPass
         {
             //lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
         }
-
 
         /// <summary>
         /// Reads the csv and populates datagrid with data and stores data in array
@@ -125,52 +130,32 @@ namespace secPass
                 {
                     csvReader.Context.RegisterClassMap<CredClassMap>();
 
-                    credentialBindingSource.DataSource = csvReader.GetRecords<Credential>();
-
                     //Populates datagridview using bindingsource
-                    var credList = csvReader.GetRecords<Credential>().ToArray();
+                    credentialBindingSource.DataSource = csvReader.GetRecords<Credential>();                    
                 }
             }
-
             /*var sr = new StreamReader(new FileStream("file\\csvDB.csv", FileMode.Open));
             var csv = new CsvReader(sr);
             studentBindingSource.DataSource = csv.GetRecords<Student>();
             sr.Close();*/
         }
 
-
-
-        /*static List<secPass.Credential> getDataToString()
-        {
-            using (var reader = new StreamReader("csvDB.csv"))
-            {
-                using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                    csvReader.Context.RegisterClassMap<CredClassMap>();
-                    var credList = csvReader.GetRecords<Credential>().ToList();
-                    return credList;
-                }
-            }            
-        }*/
-
-        public static List<Credential> csvToList()
+        /// <summary>
+        /// Reads the data from the csv and converts into list of objects and returns the list
+        /// </summary>
+        /// <returns></returns>
+        public List<Credential> csvToList()
         {
             string delimiter = ",";
             string fileName = "csvDB.csv";
 
-
             string[] csvLines = System.IO.File.ReadAllLines(fileName);
-
-            var credList = new List<Credential>();
 
             for (int i = 1; i < csvLines.Length; i++)
             {
                 Credential tCred = new Credential(csvLines[i]);
                 credList.Add(tCred);
             }
-
-
-            return credList;
 
             //Creates list of accounts
             var accounts = new List<string>();
@@ -182,8 +167,8 @@ namespace secPass
             }
             //Returns a list of the accounts held
             //return accounts;
+            return credList;
         }
-
          
         /// <summary>
         /// Maps the input data to the properties of the credentials object
