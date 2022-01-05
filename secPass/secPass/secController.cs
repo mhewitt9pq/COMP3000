@@ -23,7 +23,7 @@ namespace secPass
         /// </summary>
         /// <param name="plainTxt"></param>
         /// <returns></returns>
-        public string encrypt(string plainTxt, string mastPass)
+        public string encrypt(string mastPass, string plainTxt)
         {
             //Old encryption using cryptProvider rather than AESManaged
 
@@ -54,10 +54,10 @@ namespace secPass
             return encData;
         }
 
-        public string decrypt(string mastPass, string cryptText)
+        public string decrypt(string key, string cryptText)
         {
             string decData = null;
-            byte[][] keys = getHashKeys(mastPass);
+            byte[][] keys = getHashKeys(key);
 
             try
             {
@@ -116,9 +116,17 @@ namespace secPass
             return Convert.ToBase64String(encryptedText);
         }
 
-        private string encryptCryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
+        private static string encryptCryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
         {
             byte[] cipherText = Convert.FromBase64String(cipherTextString);
+
+            if (cipherText == null || cipherText.Length <= 0)
+                throw new ArgumentNullException("cipherText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("IV");
+
             string plaintext = null;            
             using (Aes aesAlg = Aes.Create())
             {
@@ -141,33 +149,5 @@ namespace secPass
             }
             return plaintext;
         }
-
-
-
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// Decrypt using AES256
-        /// </summary>
-        /// <param name="encryptedText">Ciphertext</param>
-        /// <returns></returns>
-        /*public String decrypt(String encryptedText)
-        {
-            ICryptoTransform transform = cryptProvider.CreateDecryptor();
-
-            byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
-
-            byte[] decryptedBytes = transform.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
-
-            string decrypted = ASCIIEncoding.ASCII.GetString(decryptedBytes);
-
-            return decrypted;
-        }*/
     }
 }

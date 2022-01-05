@@ -32,13 +32,5 @@ namespace secPass
         {
 
         }
-
-
-        /*public override string ToString()
-        {
-            string output = String.Format("Name: {0}, Credential: {1}", passName, pass);
-
-            return output;
-        }*/
     }
 }

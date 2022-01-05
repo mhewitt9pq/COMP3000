@@ -57,7 +57,7 @@ namespace secPass
             string passName = txtName.Text;
 
             //Validation
-            if (String.IsNullOrWhiteSpace(passName) ||
+            if (String.IsNullOrWhiteSpace(txtName.Text) ||
                 String.IsNullOrWhiteSpace(txtPass.Text) ||
                 String.IsNullOrWhiteSpace(txtConfPass.Text) ||
                 String.IsNullOrWhiteSpace(txtMasterPass.Text))
@@ -72,7 +72,7 @@ namespace secPass
             }
             else if (txtPass.Text == txtConfPass.Text)
             {
-                string pass = obj_aes.encrypt(txtPass.Text, txtMasterPass.Text);                
+                string pass = obj_aes.encrypt(txtMasterPass.Text, txtPass.Text);                
 
                 Credential tempCred = new Credential(passName + "," + pass);
 
@@ -89,9 +89,40 @@ namespace secPass
                 credentialBindingSource.DataSource = custDataSource;
 
                 MessageBox.Show(string.Format("Thank you for storing {0}", tempCred.Account));
+
+                lblEncryptedPass.Text = tempCred.Password;
             }
         }
-        
+
+
+        /// <summary>
+        /// Takes object list and converts to csv string and saves to csv file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="credData"></param>
+        private void SaveToCsv<T>(List<T> credData)
+        {
+            string path = "csvDB.csv";
+            var lines = new List<string>();
+            IEnumerable<PropertyDescriptor> props = TypeDescriptor.GetProperties(typeof(T)).OfType<PropertyDescriptor>();
+            var header = string.Join(",", props.ToList().Select(x => x.Name));
+            lines.Add(header);
+            var valueLines = credData.Select(row => string.Join(",", header.Split(',').Select(a => row.GetType().GetProperty(a).GetValue(row, null))));
+            lines.AddRange(valueLines);
+            File.WriteAllLines(path, lines.ToArray());
+        }
+
+        /// <summary>
+        /// Button click calls savetocsv function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveToCsv(credList);
+        }
+
+
         /// <summary>
         /// Alert if caps lock is on
         /// </summary>
@@ -112,11 +143,11 @@ namespace secPass
         /// <param name="e"></param>
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            //lblDecrypted.Text = obj_aes.decrypt(lblEncryptedPass.Text);
+            lblDecrypted.Text = obj_aes.decrypt(txtMasterPass.Text, lblEncryptedPass.Text);
         }
 
         /// <summary>
-        /// Reads the csv and populates datagrid with data and stores data in array
+        /// Reads the csv and populates datagrid with data
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -180,6 +211,90 @@ namespace secPass
                 Map(m => m.Account).Name("Account");
                 Map(m => m.Password).Name("Password");
             }
+        }
+
+        int rowIndex;
+
+        /// <summary>
+        /// Sets the cell index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgCreds_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+        }        
+
+        /// <summary>
+        /// Gets data from selected row, decrypts the password and populated the text boxes appropriately 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUpdateDisplayData_Click_1(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtUpdateMastPass.Text))
+            {
+                MessageBox.Show("Master password must be entered to display credentials");
+                return;             
+            }
+            if (txtUpdatePass.Text != txtUpdateConfPass.Text)
+            {
+                MessageBox.Show("Both passwords must match. Please re enter your passwords");
+                return;
+            }
+            else if (txtUpdatePass.Text == txtUpdateConfPass.Text)
+            {
+                try
+                {
+                    txtUpdateName.Text = dgCreds.CurrentRow.Cells[0].Value.ToString();
+                    txtUpdatePass.Text = dgCreds.CurrentRow.Cells[1].Value.ToString();
+                    string updateMastPass = txtUpdateMastPass.Text;
+                    string encPass = txtUpdatePass.Text;
+                    string plainTxtPass = obj_aes.decrypt(updateMastPass, encPass);
+                    txtUpdatePass.Text = plainTxtPass;
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Saves any modifications to csv file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow newDataRow = dgCreds.Rows[rowIndex];
+
+            string mastPass = txtUpdateMastPass.Text;
+            string plainTxtNewPass = txtUpdateConfPass.Text;
+            string cryptPass = obj_aes.encrypt(mastPass, plainTxtNewPass);
+            newDataRow.Cells[0].Value = txtUpdateName.Text;
+
+
+            //Not setting pass before storing in csv
+            newDataRow.Cells[1].Value = cryptPass;
+            txtUpdatePass.Clear();
+            txtUpdateMastPass.Clear();
+            txtUpdateName.Clear();
+            txtUpdateConfPass.Clear();
+            dgToCsv();
+        }
+
+        void dgToCsv()
+        {
+            StreamWriter dgCsv = new StreamWriter("csvDB.csv");
+            dgCsv.WriteLine("Account,Password");
+            for (int i = 0; i < dgCreds.Rows.Count; i++)
+            {
+                String Name = dgCreds.Rows[i].Cells[0].Value?.ToString();
+                String Password = dgCreds.Rows[i].Cells[1].Value?.ToString();
+                dgCsv.WriteLine(Name + "," + Password);
+            }
+            dgCsv.Close();
         }
     }
 }
