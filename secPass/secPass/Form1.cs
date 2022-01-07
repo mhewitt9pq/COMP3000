@@ -284,6 +284,9 @@ namespace secPass
             dgToCsv();
         }
 
+        /// <summary>
+        /// Reads and formats data in datagridview to csv format and writes to file
+        /// </summary>
         void dgToCsv()
         {
             StreamWriter dgCsv = new StreamWriter("csvDB.csv");
@@ -295,6 +298,42 @@ namespace secPass
                 dgCsv.WriteLine(Name + "," + Password);
             }
             dgCsv.Close();
+        }
+
+        /// <summary>
+        /// Generates strong random password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGeneratePass_Click(object sender, EventArgs e)
+        {
+            int passLengthMin = 12;
+            int passLengthMax = 16;
+            StringBuilder randPass = new StringBuilder();
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!/?@#;:-=+";
+
+            Random r = new Random();
+
+            int passLength = r.Next(passLengthMin, passLengthMax);
+
+            for (int i = 0; i < passLength; i++)
+            {
+                randPass.Append(chars[r.Next(chars.Length)]);
+            }
+
+            lblRandPass.Text = randPass.ToString();
+        }
+
+        /// <summary>
+        /// Copies generated password to clipboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblRandPass.Text);
+
+            MessageBox.Show("Password copied to clipboard!");
         }
     }
 }

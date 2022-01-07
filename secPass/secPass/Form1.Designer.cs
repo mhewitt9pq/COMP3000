@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,9 +68,12 @@
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.credentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblPassGenerator = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnGeneratePass = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.lblRandPass = new System.Windows.Forms.Label();
+            this.lblPassGenInfo = new System.Windows.Forms.Label();
+            this.lblPassGenerator = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -77,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgCreds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -478,9 +483,9 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.panel1);
+            this.tabPage4.Controls.Add(this.lblPassGenInfo);
             this.tabPage4.Controls.Add(this.lblPassGenerator);
-            this.tabPage4.Controls.Add(this.btnGeneratePass);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -489,32 +494,68 @@
             this.tabPage4.Text = "Password Generator";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // panel1
             // 
-            this.textBox1.Location = new System.Drawing.Point(285, 191);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // lblPassGenerator
-            // 
-            this.lblPassGenerator.AutoSize = true;
-            this.lblPassGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassGenerator.Location = new System.Drawing.Point(218, 23);
-            this.lblPassGenerator.Name = "lblPassGenerator";
-            this.lblPassGenerator.Size = new System.Drawing.Size(356, 31);
-            this.lblPassGenerator.TabIndex = 1;
-            this.lblPassGenerator.Text = "Secure Password Generator";
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnGeneratePass);
+            this.panel1.Controls.Add(this.btnCopy);
+            this.panel1.Controls.Add(this.lblRandPass);
+            this.panel1.Location = new System.Drawing.Point(89, 281);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(602, 126);
+            this.panel1.TabIndex = 5;
             // 
             // btnGeneratePass
             // 
             this.btnGeneratePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGeneratePass.Location = new System.Drawing.Point(294, 107);
+            this.btnGeneratePass.Location = new System.Drawing.Point(152, 17);
             this.btnGeneratePass.Name = "btnGeneratePass";
             this.btnGeneratePass.Size = new System.Drawing.Size(160, 46);
             this.btnGeneratePass.TabIndex = 0;
             this.btnGeneratePass.Text = "Generate Password";
             this.btnGeneratePass.UseVisualStyleBackColor = true;
+            this.btnGeneratePass.Click += new System.EventHandler(this.btnGeneratePass_Click);
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Location = new System.Drawing.Point(470, 33);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(97, 61);
+            this.btnCopy.TabIndex = 3;
+            this.btnCopy.Text = "Copy to clipboard";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // lblRandPass
+            // 
+            this.lblRandPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRandPass.Location = new System.Drawing.Point(30, 81);
+            this.lblRandPass.Name = "lblRandPass";
+            this.lblRandPass.Size = new System.Drawing.Size(407, 34);
+            this.lblRandPass.TabIndex = 2;
+            this.lblRandPass.Text = "Generated password will appear here";
+            this.lblRandPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPassGenInfo
+            // 
+            this.lblPassGenInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassGenInfo.Location = new System.Drawing.Point(118, 106);
+            this.lblPassGenInfo.Name = "lblPassGenInfo";
+            this.lblPassGenInfo.Size = new System.Drawing.Size(452, 172);
+            this.lblPassGenInfo.TabIndex = 4;
+            this.lblPassGenInfo.Text = resources.GetString("lblPassGenInfo.Text");
+            // 
+            // lblPassGenerator
+            // 
+            this.lblPassGenerator.AutoSize = true;
+            this.lblPassGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassGenerator.Location = new System.Drawing.Point(166, 26);
+            this.lblPassGenerator.Name = "lblPassGenerator";
+            this.lblPassGenerator.Size = new System.Drawing.Size(445, 39);
+            this.lblPassGenerator.TabIndex = 1;
+            this.lblPassGenerator.Text = "Secure Password Generator";
             // 
             // Form1
             // 
@@ -536,6 +577,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -551,9 +593,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblPassGenerator;
-        private System.Windows.Forms.Button btnGeneratePass;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblStoreNewPass;
         private System.Windows.Forms.TextBox txtPass;
@@ -583,6 +623,11 @@
         private System.Windows.Forms.TextBox txtUpdateMastPass;
         private System.Windows.Forms.Label lblUpdateConfPass;
         private System.Windows.Forms.TextBox txtUpdateConfPass;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGeneratePass;
+        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Label lblRandPass;
+        private System.Windows.Forms.Label lblPassGenInfo;
     }
 }
 
