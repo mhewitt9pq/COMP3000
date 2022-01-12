@@ -274,9 +274,16 @@ namespace secPass
             string cryptPass = obj_aes.encrypt(mastPass, plainTxtNewPass);
             newDataRow.Cells[0].Value = txtUpdateName.Text;
 
+            dgCreds.Rows[rowIndex].Cells[1].Value = cryptPass;
 
-            //Not setting pass before storing in csv
-            newDataRow.Cells[1].Value = cryptPass;
+            Credential obj = (Credential)dgCreds.CurrentRow.DataBoundItem;
+            obj.Password = cryptPass;
+            obj.Account = txtUpdateName.Text;
+
+            //dgCreds.CurrentRow.DataBoundItem = obj;
+            //obj.MyProperty = newValue;
+            //string t = credentialBindingSource.List[0]
+            dgCreds.Refresh();
             txtUpdatePass.Clear();
             txtUpdateMastPass.Clear();
             txtUpdateName.Clear();
