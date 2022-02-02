@@ -276,9 +276,9 @@ namespace secPass
 
             dgCreds.Rows[rowIndex].Cells[1].Value = cryptPass;
 
-            Credential obj = (Credential)dgCreds.CurrentRow.DataBoundItem;
-            obj.Password = cryptPass;
-            obj.Account = txtUpdateName.Text;
+            //Credential obj = (Credential)dgCreds.CurrentRow.DataBoundItem;
+            //obj.Password = cryptPass;
+            //obj.Account = txtUpdateName.Text;
 
             //dgCreds.CurrentRow.DataBoundItem = obj;
             //obj.MyProperty = newValue;
