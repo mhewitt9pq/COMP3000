@@ -12,14 +12,12 @@ namespace secPass
 {
     public class Credential
     {
-
-        //[Name("Name")]
+        //Getters and setters
         public string Account { get; set; }
-
-        //[Name("Encrypted Credential")]
+        
         public string Password { get; set; }
 
-        //Contructor
+        //Contructor that takes data in string form from datagrid and formats it to store properties
         public Credential(string rowData)
         {
             string[] data = rowData.Split(',');
@@ -30,7 +28,6 @@ namespace secPass
         }
         public Credential()
         {
-
         }
     }
 }

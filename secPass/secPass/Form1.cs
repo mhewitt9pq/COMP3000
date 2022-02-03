@@ -51,7 +51,12 @@ namespace secPass
             }
             return fileName;
         }
-                
+
+        /// <summary>
+        /// Stores entered credential to list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string passName = txtName.Text;
@@ -96,7 +101,7 @@ namespace secPass
 
 
         /// <summary>
-        /// Takes object list and converts to csv string and saves to csv file
+        /// Takes object list and converts to csv string and writes to csv file
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="credData"></param>

@@ -25,21 +25,6 @@ namespace secPass
         /// <returns></returns>
         public string encrypt(string mastPass, string plainTxt)
         {
-            //Old encryption using cryptProvider rather than AESManaged
-
-            /*cryptProvider = new AesCryptoServiceProvider();
-            cryptProvider.BlockSize = 128;
-            cryptProvider.KeySize = 256;
-
-            cryptProvider.GenerateIV();
-            cryptProvider.Key = getHashKeys(mastPass);
-            cryptProvider.Mode = CipherMode.CBC;
-            cryptProvider.Padding = PaddingMode.PKCS7;
-            ICryptoTransform transform = cryptProvider.CreateEncryptor();
-            byte[] encryptedBytes = transform.TransformFinalBlock(ASCIIEncoding.ASCII.GetBytes(plainTxt), 0, plainTxt.Length);
-
-            string encrypted = Convert.ToBase64String(encryptedBytes);
-            return encrypted;*/
 
             string encData = null;
             byte[][] keys = getHashKeys(mastPass);
@@ -54,6 +39,12 @@ namespace secPass
             return encData;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="cryptText"></param>
+        /// <returns></returns>
         public string decrypt(string key, string cryptText)
         {
             string decData = null;
@@ -69,6 +60,11 @@ namespace secPass
             return decData;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private byte[][] getHashKeys(string key)
         {
             byte[][] hashedKey = new byte[2][];
@@ -90,6 +86,13 @@ namespace secPass
             return hashedKey;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pTxt"></param>
+        /// <param name="Key"></param>
+        /// <param name="IV"></param>
+        /// <returns></returns>
         private string encryptPlainToBytes(string pTxt, byte[] Key, byte[] IV)
         {
             byte[] encryptedText;
@@ -115,7 +118,6 @@ namespace secPass
             }
             return Convert.ToBase64String(encryptedText);
         }
-
         private static string encryptCryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
         {
             byte[] cipherText = Convert.FromBase64String(cipherTextString);
