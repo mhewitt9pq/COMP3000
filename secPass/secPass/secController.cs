@@ -61,7 +61,7 @@ namespace secPass
         }
 
         /// <summary>
-        /// 
+        /// Calculates hash value of entered master password
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
