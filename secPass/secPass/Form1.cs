@@ -53,13 +53,14 @@ namespace secPass
         }
 
         /// <summary>
-        /// Stores entered credential to list
+        /// Validates and stores entered credential to list
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string passName = txtName.Text;
+            bool store = false;
+            string passName = txtName.Text;            
 
             //Validation
             if (String.IsNullOrWhiteSpace(txtName.Text) ||
@@ -77,26 +78,170 @@ namespace secPass
             }
             else if (txtPass.Text == txtConfPass.Text)
             {
-                string pass = obj_aes.encrypt(txtMasterPass.Text, txtPass.Text);                
+                int passStrength = strengthCheck(txtPass.Text);
 
-                Credential tempCred = new Credential(passName + "," + pass);
+                if (passStrength < 5)
+                {                    
+                    string tRandPass = generatePass();
+                    string message = "Our algorithm has detected that the entered password could be stronger. A stronger password could be: " + tRandPass +
+                        ". Would you like to copy this password to your clipboard?";
+                    string title = "Warning";
 
-                credList.Add(tempCred);
-
-                var custDataSource = credList.Select(x => new
+                    if (MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    //If user selects yes
+                    {
+                        Clipboard.SetText(tRandPass);
+                        MessageBox.Show("Password copied to clipboard!", "Attention");
+                    }
+                    //If user selects no
+                    else
+                    {
+                        string areYouSureMessage = "Do you want to store this credential anyway";
+                        string areYouSureTitle = "Are you sure?";
+                        if (MessageBox.Show(areYouSureMessage, areYouSureTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            //If user selects yes. Stores credentials
+                        {
+                            store = true;
+                        }
+                        //If user selects no
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
+                else if (passStrength > 4)
                 {
-                    Account = x.Account,
-                    Password = x.Password,
-                }).ToList();
+                    string areYouSureM = "Are you sure you want to store this credential?";
+                    string areYouSureT = "Are you sure?";
+                    if (MessageBox.Show(areYouSureM, areYouSureT, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    //If user selects yes. Stores credentials
+                    {
+                        store = true;
+                    }
+                    //If user selects no
+                    else
+                    {
+                        return;
+                    }
+                }
+                if (store == true)
+                {
+                    string pass = obj_aes.encrypt(txtMasterPass.Text, txtPass.Text);
+                    Credential tempCred = new Credential(passName + "," + pass);
+                    credList.Add(tempCred);
+                    var custDataSource = credList.Select(x => new
+                    {
+                        Account = x.Account,
+                        Password = x.Password,
+                    }).ToList();
 
-                //This will assign the datasource. All the columns you listed will show up, and every row
-                //of data in the list will populate into the DataGridView.
-                credentialBindingSource.DataSource = custDataSource;
+                    //This will assign the datasource. All the columns you listed will show up, and every row
+                    //of data in the list will populate into the DataGridView.
+                    credentialBindingSource.DataSource = custDataSource;
 
-                MessageBox.Show(string.Format("Thank you for storing {0}", tempCred.Account));
+                    string thankMessage = "Thank you for storing " + txtName.Text.ToString();
+                    string thankTitle = "Credential stored";
+                    MessageBox.Show(thankMessage, thankTitle);
 
-                lblEncryptedPass.Text = tempCred.Password;
+                    lblEncryptedPass.Text = tempCred.Password;
+                }
+                else
+                {
+                    return;
+                }
             }
+        }
+
+        /// <summary>
+        /// Measures strength of pass and returns strength value
+        /// </summary>
+        /// <returns></returns>
+        public static int strengthCheck(string pass)
+        {
+            //Very weak = 1
+            //Weak = 2
+            //Medium = 3
+            //Strong = 4
+            //Very strong = 5
+            //Ideal strength = 6
+            int strengthScore = 0;
+            bool hasUpperCase;
+            bool hasLowerCase;
+            bool hasNumber;
+            bool hasSpecial;
+            hasUpperCase = hasUpper(pass);
+            hasLowerCase = hasLower(pass);
+            hasNumber = hasDigit(pass);
+            hasSpecial = hasSpecialChar(pass);
+
+            //Checks length and inclusion of uppercase/lowercase letters, numbers or special characters
+            if (pass.Length > 6)
+            {
+                strengthScore++;
+            }
+            if (pass.Length > 12)
+            {
+                strengthScore++;
+            }
+            if (hasUpperCase == true)
+            {
+                strengthScore++;
+            }
+            if (hasLowerCase == true)
+            {
+                strengthScore++;
+            }
+            if (hasNumber == true)
+            {
+                strengthScore++;
+            }
+            if (hasSpecial == true)
+            {
+                strengthScore++;
+            }
+
+            return strengthScore;
+        }
+
+        /// <summary>
+        /// Returns true if password contains an upper case letter
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        public static bool hasUpper(string pass)
+        {
+            return pass.Any(c => char.IsUpper(c));
+        }
+
+        /// <summary>
+        /// Returns true if password contains a lower case letter
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        public static bool hasLower(string pass)
+        {
+            return pass.Any(c => char.IsLower(c));
+        }
+
+        /// <summary>
+        /// Returns true if password includes at least 1 number
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        public static bool hasDigit(string pass)
+        {
+            return pass.Any(c => char.IsDigit(c));
+        }
+
+        /// <summary>
+        /// Returns true if password contains special char
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        public static bool hasSpecialChar(string pass)
+        {
+            return pass.Any(c => char.IsSymbol(c) || char.IsPunctuation(c));
         }
 
 
@@ -313,29 +458,35 @@ namespace secPass
         }
 
         /// <summary>
-        /// Generates strong random password
+        /// Generates strong random password on click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnGeneratePass_Click(object sender, EventArgs e)
         {
+            string randomPass = "";
+            randomPass = generatePass();
+            lblRandPass.Text = randomPass;
+        }
+
+        /// <summary>
+        /// Generates and returns random password
+        /// </summary>
+        /// <returns></returns>
+        public static string generatePass()
+        {
             int passLengthMin = 12;
             int passLengthMax = 16;
             StringBuilder randPass = new StringBuilder();
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!/?@#;:-=+";
-
             Random r = new Random();
-
             int passLength = r.Next(passLengthMin, passLengthMax);
-
             for (int i = 0; i < passLength; i++)
             {
                 randPass.Append(chars[r.Next(chars.Length)]);
             }
-
-            lblRandPass.Text = randPass.ToString();
+            return randPass.ToString();
         }
-
         /// <summary>
         /// Copies generated password to clipboard
         /// </summary>
