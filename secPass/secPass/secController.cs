@@ -19,7 +19,7 @@ namespace secPass
         }
 
         /// <summary>
-        /// Encrypting using AES256
+        /// Encrypting using AES256 and master password
         /// </summary>
         /// <param name="plainTxt"></param>
         /// <returns></returns>
@@ -40,7 +40,7 @@ namespace secPass
         }
 
         /// <summary>
-        /// 
+        /// Decryption using AES256 and master password 
         /// </summary>
         /// <param name="key"></param>
         /// <param name="cryptText"></param>
@@ -87,7 +87,7 @@ namespace secPass
         }
 
         /// <summary>
-        /// 
+        /// Encrypts plaintext using AES256 and masterkey hash values
         /// </summary>
         /// <param name="pTxt"></param>
         /// <param name="Key"></param>
@@ -118,6 +118,15 @@ namespace secPass
             }
             return Convert.ToBase64String(encryptedText);
         }
+
+        /// <summary>
+        /// Decrypts excrypted data using AES256 and masterkey hash values
+        /// </summary>
+        /// <param name="cipherTextString"></param>
+        /// <param name="Key"></param>
+        /// <param name="IV"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         private static string encryptCryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
         {
             byte[] cipherText = Convert.FromBase64String(cipherTextString);
