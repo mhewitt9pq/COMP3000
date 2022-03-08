@@ -64,9 +64,6 @@
             this.txtUpdateName = new System.Windows.Forms.TextBox();
             this.btnGetPass = new System.Windows.Forms.Button();
             this.dgCreds = new System.Windows.Forms.DataGridView();
-            this.accountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.credentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGeneratePass = new System.Windows.Forms.Button();
@@ -74,14 +71,18 @@
             this.lblRandPass = new System.Windows.Forms.Label();
             this.lblPassGenInfo = new System.Windows.Forms.Label();
             this.lblPassGenerator = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.credentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCreds)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -323,6 +324,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnDelete);
             this.tabPage1.Controls.Add(this.lblUpdateMastPass);
             this.tabPage1.Controls.Add(this.txtUpdateMastPass);
             this.tabPage1.Controls.Add(this.lblUpdateConfPass);
@@ -382,7 +384,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(615, 291);
+            this.button2.Location = new System.Drawing.Point(471, 308);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 47);
             this.button2.TabIndex = 9;
@@ -393,7 +395,7 @@
             // btnUpdateDisplayData
             // 
             this.btnUpdateDisplayData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDisplayData.Location = new System.Drawing.Point(455, 291);
+            this.btnUpdateDisplayData.Location = new System.Drawing.Point(471, 247);
             this.btnUpdateDisplayData.Name = "btnUpdateDisplayData";
             this.btnUpdateDisplayData.Size = new System.Drawing.Size(99, 47);
             this.btnUpdateDisplayData.TabIndex = 8;
@@ -462,24 +464,6 @@
             this.dgCreds.Size = new System.Drawing.Size(623, 221);
             this.dgCreds.TabIndex = 2;
             this.dgCreds.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCreds_CellClick);
-            // 
-            // accountDataGridViewTextBoxColumn
-            // 
-            this.accountDataGridViewTextBoxColumn.DataPropertyName = "Account";
-            this.accountDataGridViewTextBoxColumn.HeaderText = "Account";
-            this.accountDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.accountDataGridViewTextBoxColumn.Name = "accountDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            // 
-            // credentialBindingSource
-            // 
-            this.credentialBindingSource.DataSource = typeof(secPass.Credential);
             // 
             // tabPage4
             // 
@@ -557,6 +541,32 @@
             this.lblPassGenerator.TabIndex = 1;
             this.lblPassGenerator.Text = "Secure Password Generator";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(621, 293);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(89, 28);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // credentialBindingSource
+            // 
+            this.credentialBindingSource.DataSource = typeof(secPass.Credential);
+            // 
+            // accountDataGridViewTextBoxColumn
+            // 
+            this.accountDataGridViewTextBoxColumn.DataPropertyName = "Account";
+            this.accountDataGridViewTextBoxColumn.HeaderText = "Account";
+            this.accountDataGridViewTextBoxColumn.Name = "accountDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,10 +584,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCreds)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -609,8 +619,6 @@
         private System.Windows.Forms.TextBox txtMasterPass;
         private System.Windows.Forms.DataGridView dgCreds;
         private System.Windows.Forms.Button btnGetPass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource credentialBindingSource;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblUpdateName;
@@ -628,6 +636,9 @@
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Label lblRandPass;
         private System.Windows.Forms.Label lblPassGenInfo;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }
 

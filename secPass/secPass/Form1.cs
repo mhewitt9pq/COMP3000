@@ -130,15 +130,8 @@ namespace secPass
                     string pass = obj_aes.encrypt(txtMasterPass.Text, txtPass.Text);
                     Credential tempCred = new Credential(passName + "," + pass);
                     credList.Add(tempCred);
-                    var custDataSource = credList.Select(x => new
-                    {
-                        Account = x.Account,
-                        Password = x.Password,
-                    }).ToList();
 
-                    //This will assign the datasource. All the columns you listed will show up, and every row
-                    //of data in the list will populate into the DataGridView.
-                    credentialBindingSource.DataSource = custDataSource;
+                    cListToDataGrid();
 
                     string thankMessage = "Thank you for storing " + txtName.Text.ToString();
                     string thankTitle = "Credential stored";
@@ -151,6 +144,18 @@ namespace secPass
                     return;
                 }
             }
+        }
+        public void cListToDataGrid()
+        {
+            var custDataSource = credList.Select(x => new
+            {
+                Account = x.Account,
+                Password = x.Password,
+            }).ToList();
+
+            //This will assign the datasource. All the columns you listed will show up, and every row
+            //of data in the list will populate into the DataGridView.
+            credentialBindingSource.DataSource = custDataSource;
         }
 
         /// <summary>
@@ -272,7 +277,6 @@ namespace secPass
             SaveToCsv(credList);
         }
 
-
         /// <summary>
         /// Alert if caps lock is on
         /// </summary>
@@ -315,10 +319,6 @@ namespace secPass
                     credentialBindingSource.DataSource = csvReader.GetRecords<Credential>();                    
                 }
             }
-            /*var sr = new StreamReader(new FileStream("file\\csvDB.csv", FileMode.Open));
-            var csv = new CsvReader(sr);
-            studentBindingSource.DataSource = csv.GetRecords<Student>();
-            sr.Close();*/
         }
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace secPass
         private void dgCreds_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex;
-        }        
+        }
 
         /// <summary>
         /// Gets data from selected row, decrypts the password and populated the text boxes appropriately 
@@ -417,14 +417,21 @@ namespace secPass
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            DataGridViewRow newDataRow = dgCreds.Rows[rowIndex];
+            //DataGridViewRow newDataRow = dgCreds.Rows[rowIndex];
 
             string mastPass = txtUpdateMastPass.Text;
             string plainTxtNewPass = txtUpdateConfPass.Text;
             string cryptPass = obj_aes.encrypt(mastPass, plainTxtNewPass);
-            newDataRow.Cells[0].Value = txtUpdateName.Text;
+            string tAcc = dgCreds.Rows[rowIndex].Cells[0].Value.ToString();
 
+            dgCreds.Rows[rowIndex].Cells[0].Value = txtUpdateName.Text;
             dgCreds.Rows[rowIndex].Cells[1].Value = cryptPass;
+
+
+            credList[rowIndex].Account = txtUpdateName.Text;
+            credList[rowIndex].Password = cryptPass;
+
+
 
             //Credential obj = (Credential)dgCreds.CurrentRow.DataBoundItem;
             //obj.Password = cryptPass;
@@ -433,12 +440,15 @@ namespace secPass
             //dgCreds.CurrentRow.DataBoundItem = obj;
             //obj.MyProperty = newValue;
             //string t = credentialBindingSource.List[0]
+
             dgCreds.Refresh();
             txtUpdatePass.Clear();
             txtUpdateMastPass.Clear();
             txtUpdateName.Clear();
             txtUpdateConfPass.Clear();
-            dgToCsv();
+            SaveToCsv(credList);
+
+            cListToDataGrid();
         }
 
         /// <summary>
@@ -487,6 +497,7 @@ namespace secPass
             }
             return randPass.ToString();
         }
+
         /// <summary>
         /// Copies generated password to clipboard
         /// </summary>
@@ -497,6 +508,16 @@ namespace secPass
             Clipboard.SetText(lblRandPass.Text);
 
             MessageBox.Show("Password copied to clipboard!");
+        }
+
+        /// <summary>
+        /// Deleted credential
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
