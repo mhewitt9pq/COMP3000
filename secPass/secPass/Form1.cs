@@ -422,33 +422,18 @@ namespace secPass
             string mastPass = txtUpdateMastPass.Text;
             string plainTxtNewPass = txtUpdateConfPass.Text;
             string cryptPass = obj_aes.encrypt(mastPass, plainTxtNewPass);
-            string tAcc = dgCreds.Rows[rowIndex].Cells[0].Value.ToString();
-
-            dgCreds.Rows[rowIndex].Cells[0].Value = txtUpdateName.Text;
-            dgCreds.Rows[rowIndex].Cells[1].Value = cryptPass;
-
 
             credList[rowIndex].Account = txtUpdateName.Text;
             credList[rowIndex].Password = cryptPass;
 
-
-
-            //Credential obj = (Credential)dgCreds.CurrentRow.DataBoundItem;
-            //obj.Password = cryptPass;
-            //obj.Account = txtUpdateName.Text;
-
-            //dgCreds.CurrentRow.DataBoundItem = obj;
-            //obj.MyProperty = newValue;
-            //string t = credentialBindingSource.List[0]
-
-            dgCreds.Refresh();
+                       
             txtUpdatePass.Clear();
             txtUpdateMastPass.Clear();
             txtUpdateName.Clear();
             txtUpdateConfPass.Clear();
             SaveToCsv(credList);
-
             cListToDataGrid();
+            dgCreds.Refresh();
         }
 
         /// <summary>
@@ -517,7 +502,37 @@ namespace secPass
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            string tAcc = "";
+            string message = "You must select a record before you attempt to delete it.";
+            string title = "Attention!";
 
+
+            try
+            {
+                if (dgCreds.Rows[rowIndex].Cells[0].Value != null)
+                {
+                    try
+                    {
+                        tAcc = dgCreds.Rows[rowIndex].Cells[0].Value.ToString();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show(message, title);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show(message, title);
+            }
+
+            var c = credList.SingleOrDefault(x => x.Account == tAcc);
+            if (c != null)
+                credList.Remove(c);
+            SaveToCsv(credList);
+            cListToDataGrid();
+            dgCreds.Refresh();
         }
     }
 }
