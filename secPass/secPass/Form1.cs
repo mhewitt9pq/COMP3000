@@ -29,7 +29,7 @@ namespace secPass
 
         static List<Credential> credList = new List<Credential>();
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             string filename = createFile();
             credList = csvToList();
@@ -57,7 +57,7 @@ namespace secPass
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSubmit_Click(object sender, EventArgs e)
+        public void btnSubmit_Click(object sender, EventArgs e)
         {
             bool store = false;
             string passName = txtName.Text;            
@@ -79,7 +79,6 @@ namespace secPass
             else if (txtPass.Text == txtConfPass.Text)
             {
                 int passStrength = strengthCheck(txtPass.Text);
-
                 if (passStrength < 5)
                 {                    
                     string tRandPass = generatePass();
@@ -90,8 +89,8 @@ namespace secPass
                     if (MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     //If user selects yes
                     {
-                        Clipboard.SetText(tRandPass);
-                        MessageBox.Show("Password copied to clipboard!", "Attention");
+                        copyToClip(tRandPass);
+                        
                     }
                     //If user selects no
                     else
@@ -130,14 +129,10 @@ namespace secPass
                     string pass = obj_aes.encrypt(txtMasterPass.Text, txtPass.Text);
                     Credential tempCred = new Credential(passName + "," + pass);
                     credList.Add(tempCred);
-
                     cListToDataGrid();
-
                     string thankMessage = "Thank you for storing " + txtName.Text.ToString();
                     string thankTitle = "Credential stored";
                     MessageBox.Show(thankMessage, thankTitle);
-
-                    lblEncryptedPass.Text = tempCred.Password;
                 }
                 else
                 {
@@ -145,6 +140,10 @@ namespace secPass
                 }
             }
         }
+
+        /// <summary>
+        /// Populates datagrid with list objects
+        /// </summary>
         public void cListToDataGrid()
         {
             var custDataSource = credList.Select(x => new
@@ -286,7 +285,7 @@ namespace secPass
         {
             if (Control.IsKeyLocked(Keys.CapsLock))
             {
-                MessageBox.Show("The Caps Lock key is ON.");
+                MessageBox.Show("The Caps Lock key is ON.", "Attention");
             }
         }
 
@@ -490,11 +489,15 @@ namespace secPass
         /// <param name="e"></param>
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(lblRandPass.Text);
-
-            MessageBox.Show("Password copied to clipboard!");
+            copyToClip(lblRandPass.Text);
         }
+        public void copyToClip(string text)
+        {
+            string cText = text;
+            Clipboard.SetText(cText);
+            MessageBox.Show("Password copied to clipboard!", "Attention");
 
+        }
         /// <summary>
         /// Deleted credential
         /// </summary>
@@ -528,8 +531,10 @@ namespace secPass
             }
 
             var c = credList.SingleOrDefault(x => x.Account == tAcc);
+
             if (c != null)
                 credList.Remove(c);
+
             SaveToCsv(credList);
             cListToDataGrid();
             dgCreds.Refresh();
