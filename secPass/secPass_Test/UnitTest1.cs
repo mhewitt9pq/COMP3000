@@ -20,7 +20,7 @@ namespace secPass_Test
 
 
 
-            secPass.Form1.generatePass
+            //secPass.Form1.generatePass
 
 
 

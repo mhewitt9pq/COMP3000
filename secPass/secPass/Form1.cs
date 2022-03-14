@@ -13,25 +13,52 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
 using System.Globalization;
+using Microsoft.VisualBasic;
 
 
 namespace secPass
 {
     public partial class Form1 : Form
     {
+        string usrName;
+        string usrMastPass;
         public Form1()
         {
             InitializeComponent();
-
             obj_aes = new secController();
         }
-        secController obj_aes;
 
+        secController obj_aes;        
         static List<Credential> credList = new List<Credential>();
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            /*string msg = "Please enter your username and masterpassword";
+            string title = "Login";
+            string defaultValue = "1";
+            string input = InputBox(msg, title, defaultValue);*/
+
+            /*usrName = frmLogin.LoginName;
+            usrMastPass = frmLogin.LoginPassword;*/
+
+            usrName = frmLogin.LoginName;
+            usrMastPass = frmLogin.LoginPassword;
+
+            lblMastP.Text = usrMastPass;
+            lblUsrN.Text = usrName;
+
+
             string filename = createFile();
+            //Pass in file name
+            createList();
+        }
+
+        /*public static string InputBox(string Prompt, string Title, string DefaultResponse, int xPos = -1, int yPos = -1)
+        {
+
+        }*/
+        private void createList()
+        {
             credList = csvToList();
         }
 
@@ -40,7 +67,8 @@ namespace secPass
         /// </summary>
         /// <returns>File name</returns>
         private string createFile()
-        {
+        {            
+            //Take in generated filename
             string fileName = "csvDB.csv";
             StringBuilder csvContent = new StringBuilder();
             csvContent.AppendLine("Account,Password");           
@@ -529,9 +557,7 @@ namespace secPass
 
                 MessageBox.Show(message, title);
             }
-
             var c = credList.SingleOrDefault(x => x.Account == tAcc);
-
             if (c != null)
                 credList.Remove(c);
 
