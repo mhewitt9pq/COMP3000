@@ -86,6 +86,22 @@ namespace secPass
             return hashedKey;
         }
 
+        public string hash(string plnTxt)
+        {
+            SHA256 h = new SHA256CryptoServiceProvider();
+            Encoding enc = Encoding.UTF8;
+
+            byte[] bytes = h.ComputeHash(enc.GetBytes(plnTxt));
+
+            var stringB = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                stringB.Append(bytes[i].ToString());
+            }
+
+            return stringB.ToString();
+        }
+
         /// <summary>
         /// Encrypts plaintext using AES256 and masterkey hash values
         /// </summary>

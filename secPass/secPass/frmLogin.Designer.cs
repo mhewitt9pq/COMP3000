@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.btnOk = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtMastP = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblMastP = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOk
@@ -45,15 +45,6 @@
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(135, 136);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // txtUsername
             // 
@@ -87,16 +78,26 @@
             this.lblMastP.TabIndex = 3;
             this.lblMastP.Text = "Master Password:";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(170, 136);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 176);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblMastP);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtMastP);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Name = "frmLogin";
             this.Text = "frmLogin";
@@ -108,10 +109,10 @@
         #endregion
 
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtMastP;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblMastP;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

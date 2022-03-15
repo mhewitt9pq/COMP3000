@@ -22,6 +22,7 @@ namespace secPass
     {
         string usrName;
         string usrMastPass;
+        string fileName;
         public Form1()
         {
             InitializeComponent();
@@ -33,30 +34,18 @@ namespace secPass
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            /*string msg = "Please enter your username and masterpassword";
-            string title = "Login";
-            string defaultValue = "1";
-            string input = InputBox(msg, title, defaultValue);*/
-
-            /*usrName = frmLogin.LoginName;
-            usrMastPass = frmLogin.LoginPassword;*/
-
             usrName = frmLogin.LoginName;
             usrMastPass = frmLogin.LoginPassword;
 
             lblMastP.Text = usrMastPass;
             lblUsrN.Text = usrName;
 
+            fileName = createFile();
 
-            string filename = createFile();
             //Pass in file name
             createList();
         }
-
-        /*public static string InputBox(string Prompt, string Title, string DefaultResponse, int xPos = -1, int yPos = -1)
-        {
-
-        }*/
+        
         private void createList()
         {
             credList = csvToList();
@@ -67,9 +56,12 @@ namespace secPass
         /// </summary>
         /// <returns>File name</returns>
         private string createFile()
-        {            
+        {
             //Take in generated filename
-            string fileName = "csvDB.csv";
+            string name = calcHash(usrName, usrMastPass);
+
+            string fileName = name + ".csv";
+
             StringBuilder csvContent = new StringBuilder();
             csvContent.AppendLine("Account,Password");           
             
@@ -78,6 +70,22 @@ namespace secPass
                 File.AppendAllText(fileName, csvContent.ToString());
             }
             return fileName;
+        }
+
+        /// <summary>
+        /// Generates hash value from two srings
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public string calcHash(string u, string p)
+        {
+            //Hashes both strings seperatley, merges them both together, 
+            //and then hashes the combination to get the final hash value
+            string hup = obj_aes.hash(u) + obj_aes.hash(p);
+            string hashed = obj_aes.hash(hup);
+
+            return hashed;
         }
 
         /// <summary>
@@ -96,7 +104,7 @@ namespace secPass
                 String.IsNullOrWhiteSpace(txtConfPass.Text) ||
                 String.IsNullOrWhiteSpace(txtMasterPass.Text))
             {
-                MessageBox.Show("All fields must be filled. Please enter a name and your password");
+                MessageBox.Show("All fields must be filled. Please enter a name and your password", "Alert");
                 return;
             }
             if (txtPass.Text != txtConfPass.Text)
@@ -284,7 +292,7 @@ namespace secPass
         /// <param name="credData"></param>
         private void SaveToCsv<T>(List<T> credData)
         {
-            string path = "csvDB.csv";
+            string path = fileName;
             var lines = new List<string>();
             IEnumerable<PropertyDescriptor> props = TypeDescriptor.GetProperties(typeof(T)).OfType<PropertyDescriptor>();
             var header = string.Join(",", props.ToList().Select(x => x.Name));
@@ -336,7 +344,7 @@ namespace secPass
         {
             //getDataToString();
             
-            using (var reader = new StreamReader("csvDB.csv"))
+            using (var reader = new StreamReader(fileName))
             {
                 using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
@@ -355,7 +363,6 @@ namespace secPass
         public List<Credential> csvToList()
         {
             string delimiter = ",";
-            string fileName = "csvDB.csv";
 
             string[] csvLines = System.IO.File.ReadAllLines(fileName);
 
