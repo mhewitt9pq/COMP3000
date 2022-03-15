@@ -31,12 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMasterPass = new System.Windows.Forms.TextBox();
-            this.lblDecrypted = new System.Windows.Forms.Label();
-            this.btnDecrypt = new System.Windows.Forms.Button();
-            this.lblEncryptedPass = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblStoreNewPass = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -75,8 +71,6 @@
             this.lblRandPass = new System.Windows.Forms.Label();
             this.lblPassGenInfo = new System.Windows.Forms.Label();
             this.lblPassGenerator = new System.Windows.Forms.Label();
-            this.lblMastP = new System.Windows.Forms.Label();
-            this.lblUsrN = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -89,12 +83,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btnSave);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.txtMasterPass);
-            this.tabPage2.Controls.Add(this.lblDecrypted);
-            this.tabPage2.Controls.Add(this.btnDecrypt);
-            this.tabPage2.Controls.Add(this.lblEncryptedPass);
             this.tabPage2.Controls.Add(this.btnSubmit);
             this.tabPage2.Controls.Add(this.lblStoreNewPass);
             this.tabPage2.Controls.Add(this.txtPass);
@@ -110,21 +100,11 @@
             this.tabPage2.Text = "Store Password";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(597, 364);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 24;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(435, 104);
+            this.label3.Location = new System.Drawing.Point(214, 138);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 25);
@@ -133,38 +113,10 @@
             // 
             // txtMasterPass
             // 
-            this.txtMasterPass.Location = new System.Drawing.Point(562, 109);
+            this.txtMasterPass.Location = new System.Drawing.Point(347, 144);
             this.txtMasterPass.Name = "txtMasterPass";
             this.txtMasterPass.Size = new System.Drawing.Size(100, 20);
             this.txtMasterPass.TabIndex = 21;
-            // 
-            // lblDecrypted
-            // 
-            this.lblDecrypted.AutoSize = true;
-            this.lblDecrypted.Location = new System.Drawing.Point(594, 224);
-            this.lblDecrypted.Name = "lblDecrypted";
-            this.lblDecrypted.Size = new System.Drawing.Size(150, 13);
-            this.lblDecrypted.TabIndex = 20;
-            this.lblDecrypted.Text = "Decrypted pass will show here";
-            // 
-            // btnDecrypt
-            // 
-            this.btnDecrypt.Location = new System.Drawing.Point(638, 162);
-            this.btnDecrypt.Name = "btnDecrypt";
-            this.btnDecrypt.Size = new System.Drawing.Size(75, 23);
-            this.btnDecrypt.TabIndex = 19;
-            this.btnDecrypt.Text = "Decrypt";
-            this.btnDecrypt.UseVisualStyleBackColor = true;
-            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
-            // 
-            // lblEncryptedPass
-            // 
-            this.lblEncryptedPass.AutoSize = true;
-            this.lblEncryptedPass.Location = new System.Drawing.Point(584, 288);
-            this.lblEncryptedPass.Name = "lblEncryptedPass";
-            this.lblEncryptedPass.Size = new System.Drawing.Size(129, 13);
-            this.lblEncryptedPass.TabIndex = 17;
-            this.lblEncryptedPass.Text = "Encryped text shows here";
             // 
             // btnSubmit
             // 
@@ -216,11 +168,11 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(347, 153);
+            this.txtName.Location = new System.Drawing.Point(347, 170);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.MinimumSize = new System.Drawing.Size(148, 38);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(180, 32);
+            this.txtName.Size = new System.Drawing.Size(180, 38);
             this.txtName.TabIndex = 9;
             // 
             // txtConfPass
@@ -250,7 +202,7 @@
             // 
             this.lblEnterName.AutoSize = true;
             this.lblEnterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnterName.Location = new System.Drawing.Point(141, 155);
+            this.lblEnterName.Location = new System.Drawing.Point(139, 173);
             this.lblEnterName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnterName.Name = "lblEnterName";
             this.lblEnterName.Size = new System.Drawing.Size(197, 25);
@@ -259,8 +211,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.lblUsrN);
-            this.tabPage3.Controls.Add(this.lblMastP);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.lblHomeInfo1);
             this.tabPage3.Controls.Add(this.lblDescription);
@@ -571,22 +521,6 @@
             this.lblPassGenerator.TabIndex = 1;
             this.lblPassGenerator.Text = "Secure Password Generator";
             // 
-            // lblMastP
-            // 
-            this.lblMastP.AutoSize = true;
-            this.lblMastP.Location = new System.Drawing.Point(381, 154);
-            this.lblMastP.Name = "lblMastP";
-            this.lblMastP.Size = new System.Drawing.Size(0, 13);
-            this.lblMastP.TabIndex = 4;
-            // 
-            // lblUsrN
-            // 
-            this.lblUsrN.AutoSize = true;
-            this.lblUsrN.Location = new System.Drawing.Point(345, 254);
-            this.lblUsrN.Name = "lblUsrN";
-            this.lblUsrN.Size = new System.Drawing.Size(0, 13);
-            this.lblUsrN.TabIndex = 5;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,15 +566,11 @@
         private System.Windows.Forms.TextBox txtConfPass;
         private System.Windows.Forms.Label lblConfPass;
         private System.Windows.Forms.Label lblEnterName;
-        private System.Windows.Forms.Label lblEncryptedPass;
-        private System.Windows.Forms.Button btnDecrypt;
-        private System.Windows.Forms.Label lblDecrypted;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMasterPass;
         private System.Windows.Forms.DataGridView dgCreds;
         private System.Windows.Forms.Button btnGetPass;
         private System.Windows.Forms.BindingSource credentialBindingSource;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblUpdateName;
         private System.Windows.Forms.TextBox txtUpdatePass;
         private System.Windows.Forms.TextBox txtUpdateName;
@@ -659,8 +589,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label lblMastP;
-        private System.Windows.Forms.Label lblUsrN;
     }
 }
 

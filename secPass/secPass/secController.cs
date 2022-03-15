@@ -15,7 +15,6 @@ namespace secPass
         /// </summary>
         public secController()
         {
-
         }
 
         /// <summary>
@@ -25,7 +24,6 @@ namespace secPass
         /// <returns></returns>
         public string encrypt(string mastPass, string plainTxt)
         {
-
             string encData = null;
             byte[][] keys = getHashKeys(mastPass);
 
@@ -86,6 +84,11 @@ namespace secPass
             return hashedKey;
         }
 
+        /// <summary>
+        /// Hashes single string value
+        /// </summary>
+        /// <param name="plnTxt"></param>
+        /// <returns></returns>
         public string hash(string plnTxt)
         {
             SHA256 h = new SHA256CryptoServiceProvider();

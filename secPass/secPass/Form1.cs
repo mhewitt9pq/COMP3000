@@ -30,6 +30,7 @@ namespace secPass
         }
 
         secController obj_aes;        
+
         static List<Credential> credList = new List<Credential>();
 
         public void Form1_Load(object sender, EventArgs e)
@@ -37,17 +38,8 @@ namespace secPass
             usrName = frmLogin.LoginName;
             usrMastPass = frmLogin.LoginPassword;
 
-            lblMastP.Text = usrMastPass;
-            lblUsrN.Text = usrName;
-
             fileName = createFile();
 
-            //Pass in file name
-            createList();
-        }
-        
-        private void createList()
-        {
             credList = csvToList();
         }
 
@@ -69,6 +61,7 @@ namespace secPass
             {
                 File.AppendAllText(fileName, csvContent.ToString());
             }
+
             return fileName;
         }
 
@@ -168,6 +161,7 @@ namespace secPass
                     cListToDataGrid();
                     string thankMessage = "Thank you for storing " + txtName.Text.ToString();
                     string thankTitle = "Credential stored";
+                    SaveToCsv(credList);
                     MessageBox.Show(thankMessage, thankTitle);
                 }
                 else
@@ -284,7 +278,6 @@ namespace secPass
             return pass.Any(c => char.IsSymbol(c) || char.IsPunctuation(c));
         }
 
-
         /// <summary>
         /// Takes object list and converts to csv string and writes to csv file
         /// </summary>
@@ -303,16 +296,6 @@ namespace secPass
         }
 
         /// <summary>
-        /// Button click calls savetocsv function
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveToCsv(credList);
-        }
-
-        /// <summary>
         /// Alert if caps lock is on
         /// </summary>
         /// <param name="sender"></param>
@@ -323,16 +306,6 @@ namespace secPass
             {
                 MessageBox.Show("The Caps Lock key is ON.", "Attention");
             }
-        }
-
-        /// <summary>
-        /// Decrypts ciphertext
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnDecrypt_Click(object sender, EventArgs e)
-        {
-            lblDecrypted.Text = obj_aes.decrypt(txtMasterPass.Text, lblEncryptedPass.Text);
         }
 
         /// <summary>
