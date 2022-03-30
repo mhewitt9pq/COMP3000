@@ -39,20 +39,31 @@
             this.siticoneControlBox2 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.panelSlider = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblReminder1 = new System.Windows.Forms.Label();
+            this.siticonePanel4 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.lblReminder2 = new System.Windows.Forms.Label();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticonePanel2.SuspendLayout();
+            this.siticonePanel4.SuspendLayout();
+            this.siticonePanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticonePanel1
             // 
             this.siticonePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(18)))), ((int)(((byte)(26)))));
+            this.siticonePanel1.BorderThickness = 1;
+            this.siticonePanel1.Controls.Add(this.siticonePanel3);
+            this.siticonePanel1.Controls.Add(this.siticonePanel4);
             this.siticonePanel1.Controls.Add(this.label1);
+            this.siticonePanel1.CustomBorderColor = System.Drawing.Color.Black;
+            this.siticonePanel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.siticonePanel1.Location = new System.Drawing.Point(0, 490);
+            this.siticonePanel1.Location = new System.Drawing.Point(0, 499);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
-            this.siticonePanel1.Size = new System.Drawing.Size(933, 51);
+            this.siticonePanel1.Size = new System.Drawing.Size(933, 42);
             this.siticonePanel1.TabIndex = 0;
             // 
             // siticonePictureBox1
@@ -72,7 +83,8 @@
             // 
             // btnHome
             // 
-            this.btnHome.Checked = true;
+            this.btnHome.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnHome.CheckedState.BorderColor = System.Drawing.Color.Transparent;
             this.btnHome.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.btnHome.CheckedState.Parent = this.btnHome;
             this.btnHome.CustomBorderColor = System.Drawing.Color.Black;
@@ -101,6 +113,7 @@
             // 
             // btnStoreP
             // 
+            this.btnStoreP.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
             this.btnStoreP.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.btnStoreP.CheckedState.Parent = this.btnStoreP;
             this.btnStoreP.CustomBorderColor = System.Drawing.Color.Black;
@@ -132,6 +145,7 @@
             // 
             // btnGetPass
             // 
+            this.btnGetPass.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
             this.btnGetPass.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.btnGetPass.CheckedState.Parent = this.btnGetPass;
             this.btnGetPass.CustomBorderColor = System.Drawing.Color.Black;
@@ -163,6 +177,7 @@
             // 
             // btnGenPass
             // 
+            this.btnGenPass.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
             this.btnGenPass.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.btnGenPass.CheckedState.Parent = this.btnGenPass;
             this.btnGenPass.CustomBorderColor = System.Drawing.Color.Black;
@@ -253,11 +268,57 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(848, 16);
+            this.label1.Location = new System.Drawing.Point(848, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "SecPass 2022";
+            // 
+            // lblReminder1
+            // 
+            this.lblReminder1.AutoSize = true;
+            this.lblReminder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReminder1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblReminder1.Location = new System.Drawing.Point(0, 8);
+            this.lblReminder1.Name = "lblReminder1";
+            this.lblReminder1.Size = new System.Drawing.Size(345, 22);
+            this.lblReminder1.TabIndex = 1;
+            this.lblReminder1.Text = "Never share your passwords with anyone!";
+            // 
+            // siticonePanel4
+            // 
+            this.siticonePanel4.Controls.Add(this.lblReminder2);
+            this.siticonePanel4.CustomBorderColor = System.Drawing.Color.White;
+            this.siticonePanel4.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.siticonePanel4.FillColor = System.Drawing.Color.Transparent;
+            this.siticonePanel4.Location = new System.Drawing.Point(357, 3);
+            this.siticonePanel4.Name = "siticonePanel4";
+            this.siticonePanel4.ShadowDecoration.Parent = this.siticonePanel4;
+            this.siticonePanel4.Size = new System.Drawing.Size(427, 36);
+            this.siticonePanel4.TabIndex = 3;
+            // 
+            // siticonePanel3
+            // 
+            this.siticonePanel3.Controls.Add(this.lblReminder1);
+            this.siticonePanel3.CustomBorderColor = System.Drawing.Color.Silver;
+            this.siticonePanel3.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.siticonePanel3.FillColor = System.Drawing.Color.Transparent;
+            this.siticonePanel3.Location = new System.Drawing.Point(3, 3);
+            this.siticonePanel3.Name = "siticonePanel3";
+            this.siticonePanel3.ShadowDecoration.Parent = this.siticonePanel3;
+            this.siticonePanel3.Size = new System.Drawing.Size(354, 36);
+            this.siticonePanel3.TabIndex = 4;
+            // 
+            // lblReminder2
+            // 
+            this.lblReminder2.AutoSize = true;
+            this.lblReminder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReminder2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblReminder2.Location = new System.Drawing.Point(6, 8);
+            this.lblReminder2.Name = "lblReminder2";
+            this.lblReminder2.Size = new System.Drawing.Size(410, 22);
+            this.lblReminder2.TabIndex = 2;
+            this.lblReminder2.Text = "Verify an emails source before responding to them";
             // 
             // Dash
             // 
@@ -277,6 +338,10 @@
             this.siticonePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
+            this.siticonePanel4.ResumeLayout(false);
+            this.siticonePanel4.PerformLayout();
+            this.siticonePanel3.ResumeLayout(false);
+            this.siticonePanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -294,5 +359,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox siticoneControlBox2;
         private Siticone.Desktop.UI.WinForms.SiticonePanel panelSlider;
         private System.Windows.Forms.Label label1;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
+        private System.Windows.Forms.Label lblReminder1;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel4;
+        private System.Windows.Forms.Label lblReminder2;
     }
 }
