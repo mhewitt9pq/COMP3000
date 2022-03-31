@@ -16,5 +16,6 @@ namespace secPass.UserControls
         {
             InitializeComponent();
         }
+
     }
 }

@@ -19,7 +19,6 @@ namespace secPass
             InitializeComponent();
 
             new SiticoneShadowForm(this);
-            new SiticoneDragControl(this);
 
             //panelSlider.Controls.Add(new Home());
             panelSlider.Controls.Add(new Home());

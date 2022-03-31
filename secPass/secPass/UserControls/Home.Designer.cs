@@ -29,19 +29,17 @@
         private void InitializeComponent()
         {
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.lblBegin = new System.Windows.Forms.Label();
-            this.lblHelp = new System.Windows.Forms.Label();
-            this.lblHow = new System.Windows.Forms.Label();
-            this.siticonePanel1.SuspendLayout();
-            this.siticonePanel2.SuspendLayout();
+            this.siticonePanel5 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.siticonePanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft YaHei UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft YaHei UI", 25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.LightGray;
             this.lblWelcome.Location = new System.Drawing.Point(230, 0);
             this.lblWelcome.Name = "lblWelcome";
@@ -49,73 +47,67 @@
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome to SecPass";
             // 
-            // siticonePanel1
+            // siticonePanel5
             // 
-            this.siticonePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(128)))), ((int)(((byte)(174)))));
-            this.siticonePanel1.Controls.Add(this.lblHow);
-            this.siticonePanel1.Location = new System.Drawing.Point(459, 64);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
-            this.siticonePanel1.Size = new System.Drawing.Size(345, 289);
-            this.siticonePanel1.TabIndex = 2;
+            this.siticonePanel5.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePanel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(143)))), ((int)(((byte)(184)))));
+            this.siticonePanel5.BorderRadius = 15;
+            this.siticonePanel5.BorderThickness = 2;
+            this.siticonePanel5.Controls.Add(this.label2);
+            this.siticonePanel5.Controls.Add(this.label1);
+            this.siticonePanel5.FillColor = System.Drawing.Color.Transparent;
+            this.siticonePanel5.ForeColor = System.Drawing.Color.LightGray;
+            this.siticonePanel5.Location = new System.Drawing.Point(3, 97);
+            this.siticonePanel5.Name = "siticonePanel5";
+            this.siticonePanel5.ShadowDecoration.Parent = this.siticonePanel5;
+            this.siticonePanel5.Size = new System.Drawing.Size(819, 302);
+            this.siticonePanel5.TabIndex = 10;
             // 
-            // siticonePanel2
+            // label6
             // 
-            this.siticonePanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(128)))), ((int)(((byte)(174)))));
-            this.siticonePanel2.Controls.Add(this.lblHelp);
-            this.siticonePanel2.Controls.Add(this.lblBegin);
-            this.siticonePanel2.Location = new System.Drawing.Point(18, 64);
-            this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.ShadowDecoration.Parent = this.siticonePanel2;
-            this.siticonePanel2.Size = new System.Drawing.Size(353, 289);
-            this.siticonePanel2.TabIndex = 3;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.LightGray;
+            this.label6.Location = new System.Drawing.Point(250, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(313, 27);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Your secure password manager\r\n";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblBegin
+            // label1
             // 
-            this.lblBegin.AutoSize = true;
-            this.lblBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBegin.ForeColor = System.Drawing.Color.Black;
-            this.lblBegin.Location = new System.Drawing.Point(67, 10);
-            this.lblBegin.Name = "lblBegin";
-            this.lblBegin.Size = new System.Drawing.Size(226, 36);
-            this.lblBegin.TabIndex = 0;
-            this.lblBegin.Text = "Where to begin:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(268, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "To store a password:";
             // 
-            // lblHelp
+            // label2
             // 
-            this.lblHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelp.Location = new System.Drawing.Point(14, 56);
-            this.lblHelp.Name = "lblHelp";
-            this.lblHelp.Size = new System.Drawing.Size(336, 233);
-            this.lblHelp.TabIndex = 1;
-            this.lblHelp.Text = "1. To store a password, navigate      to the store password tab.\r\n2. Enter your m" +
-    "aster password         and relevant credentials               (Account name and " +
-    "password)\r\n3. Click Save";
-            // 
-            // lblHow
-            // 
-            this.lblHow.AutoSize = true;
-            this.lblHow.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHow.Location = new System.Drawing.Point(75, 10);
-            this.lblHow.Name = "lblHow";
-            this.lblHow.Size = new System.Drawing.Size(202, 36);
-            this.lblHow.TabIndex = 0;
-            this.lblHow.Text = "How it works?";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(331, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Navigate to the \"Store Password\" tab";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
-            this.Controls.Add(this.siticonePanel2);
-            this.Controls.Add(this.siticonePanel1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.siticonePanel5);
             this.Controls.Add(this.lblWelcome);
             this.Name = "Home";
-            this.Size = new System.Drawing.Size(825, 369);
-            this.siticonePanel1.ResumeLayout(false);
-            this.siticonePanel1.PerformLayout();
-            this.siticonePanel2.ResumeLayout(false);
-            this.siticonePanel2.PerformLayout();
+            this.Size = new System.Drawing.Size(825, 402);
+            this.siticonePanel5.ResumeLayout(false);
+            this.siticonePanel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,10 +116,9 @@
         #endregion
 
         private System.Windows.Forms.Label lblWelcome;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
-        private System.Windows.Forms.Label lblHelp;
-        private System.Windows.Forms.Label lblBegin;
-        private System.Windows.Forms.Label lblHow;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
