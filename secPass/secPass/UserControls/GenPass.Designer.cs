@@ -113,7 +113,7 @@
             this.siticoneButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
             this.siticoneButton1.HoverState.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.HoverState.Parent = this.siticoneButton1;
-            this.siticoneButton1.Location = new System.Drawing.Point(607, 15);
+            this.siticoneButton1.Location = new System.Drawing.Point(649, 15);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.ShadowDecoration.Parent = this.siticoneButton1;
             this.siticoneButton1.Size = new System.Drawing.Size(156, 77);
@@ -126,7 +126,7 @@
             this.lblConfPass.BackColor = System.Drawing.Color.Transparent;
             this.lblConfPass.Font = new System.Drawing.Font("Microsoft YaHei UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfPass.ForeColor = System.Drawing.Color.Black;
-            this.lblConfPass.Location = new System.Drawing.Point(188, 37);
+            this.lblConfPass.Location = new System.Drawing.Point(207, 37);
             this.lblConfPass.Name = "lblConfPass";
             this.lblConfPass.Size = new System.Drawing.Size(398, 31);
             this.lblConfPass.TabIndex = 12;
@@ -176,7 +176,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.LightGray;
-            this.label5.Location = new System.Drawing.Point(449, 110);
+            this.label5.Location = new System.Drawing.Point(465, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(385, 169);
             this.label5.TabIndex = 14;
@@ -201,10 +201,10 @@
             this.siticonePanel2.BorderColor = System.Drawing.Color.White;
             this.siticonePanel2.BorderThickness = 1;
             this.siticonePanel2.Controls.Add(this.label4);
-            this.siticonePanel2.Location = new System.Drawing.Point(427, 22);
+            this.siticonePanel2.Location = new System.Drawing.Point(444, 22);
             this.siticonePanel2.Name = "siticonePanel2";
             this.siticonePanel2.ShadowDecoration.Parent = this.siticonePanel2;
-            this.siticonePanel2.Size = new System.Drawing.Size(380, 78);
+            this.siticonePanel2.Size = new System.Drawing.Size(378, 78);
             this.siticonePanel2.TabIndex = 17;
             // 
             // GenPass
