@@ -43,13 +43,18 @@
             this.siticoneControlBox1 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneControlBox2 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
-            this.panelSlider = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneBorderlessForm1 = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
+            this.siticonePanel5 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.storePassword1 = new secPass.UserControls.StorePassword();
+            this.home1 = new secPass.UserControls.Home();
+            this.genPass1 = new secPass.UserControls.GenPass();
+            this.retrievePassword1 = new secPass.UserControls.RetrievePassword();
             this.siticonePanel1.SuspendLayout();
             this.siticonePanel3.SuspendLayout();
             this.siticonePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticonePanel2.SuspendLayout();
+            this.siticonePanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticonePanel1
@@ -168,7 +173,7 @@
             this.btnHome.Size = new System.Drawing.Size(162, 78);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Home";
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnHome.CheckedChanged += new System.EventHandler(this.btnHome_CheckedChanged);
             // 
             // btnStoreP
             // 
@@ -200,7 +205,7 @@
             this.btnStoreP.TabIndex = 3;
             this.btnStoreP.Text = "Store Password";
             this.btnStoreP.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnStoreP.Click += new System.EventHandler(this.btnStoreP_Click);
+            this.btnStoreP.CheckedChanged += new System.EventHandler(this.btnStoreP_CheckedChanged);
             // 
             // btnGetPass
             // 
@@ -232,7 +237,7 @@
             this.btnGetPass.TabIndex = 4;
             this.btnGetPass.Text = "Get Password";
             this.btnGetPass.TextOffset = new System.Drawing.Point(12, 0);
-            this.btnGetPass.Click += new System.EventHandler(this.btnGetPass_Click);
+            this.btnGetPass.CheckedChanged += new System.EventHandler(this.btnGetPass_CheckedChanged);
             // 
             // btnGenPass
             // 
@@ -248,7 +253,7 @@
             this.btnGenPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnGenPass.DisabledState.Parent = this.btnGenPass;
             this.btnGenPass.FillColor = System.Drawing.Color.Empty;
-            this.btnGenPass.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenPass.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenPass.ForeColor = System.Drawing.Color.White;
             this.btnGenPass.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.btnGenPass.HoverState.CustomBorderColor = System.Drawing.Color.White;
@@ -260,11 +265,11 @@
             this.btnGenPass.Location = new System.Drawing.Point(647, -1);
             this.btnGenPass.Name = "btnGenPass";
             this.btnGenPass.ShadowDecoration.Parent = this.btnGenPass;
-            this.btnGenPass.Size = new System.Drawing.Size(162, 78);
+            this.btnGenPass.Size = new System.Drawing.Size(171, 78);
             this.btnGenPass.TabIndex = 5;
             this.btnGenPass.Text = "Generate Password";
             this.btnGenPass.TextOffset = new System.Drawing.Point(18, 0);
-            this.btnGenPass.Click += new System.EventHandler(this.btnGenPass_Click);
+            this.btnGenPass.CheckedChanged += new System.EventHandler(this.btnGenPass_CheckedChanged);
             // 
             // siticoneControlBox1
             // 
@@ -315,17 +320,57 @@
             this.siticoneControlBox2.Size = new System.Drawing.Size(59, 46);
             this.siticoneControlBox2.TabIndex = 7;
             // 
-            // panelSlider
-            // 
-            this.panelSlider.Location = new System.Drawing.Point(49, 91);
-            this.panelSlider.Name = "panelSlider";
-            this.panelSlider.ShadowDecoration.Parent = this.panelSlider;
-            this.panelSlider.Size = new System.Drawing.Size(825, 402);
-            this.panelSlider.TabIndex = 8;
-            // 
             // siticoneBorderlessForm1
             // 
             this.siticoneBorderlessForm1.ContainerControl = this;
+            // 
+            // siticonePanel5
+            // 
+            this.siticonePanel5.Controls.Add(this.storePassword1);
+            this.siticonePanel5.Controls.Add(this.home1);
+            this.siticonePanel5.Controls.Add(this.genPass1);
+            this.siticonePanel5.Controls.Add(this.retrievePassword1);
+            this.siticonePanel5.Location = new System.Drawing.Point(49, 87);
+            this.siticonePanel5.Name = "siticonePanel5";
+            this.siticonePanel5.ShadowDecoration.Parent = this.siticonePanel5;
+            this.siticonePanel5.Size = new System.Drawing.Size(825, 402);
+            this.siticonePanel5.TabIndex = 8;
+            // 
+            // storePassword1
+            // 
+            this.storePassword1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.storePassword1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.storePassword1.Location = new System.Drawing.Point(0, 0);
+            this.storePassword1.Name = "storePassword1";
+            this.storePassword1.Size = new System.Drawing.Size(825, 402);
+            this.storePassword1.TabIndex = 1;
+            // 
+            // home1
+            // 
+            this.home1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.home1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.home1.Location = new System.Drawing.Point(0, 0);
+            this.home1.Name = "home1";
+            this.home1.Size = new System.Drawing.Size(825, 402);
+            this.home1.TabIndex = 0;
+            // 
+            // genPass1
+            // 
+            this.genPass1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.genPass1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genPass1.Location = new System.Drawing.Point(0, 0);
+            this.genPass1.Name = "genPass1";
+            this.genPass1.Size = new System.Drawing.Size(825, 402);
+            this.genPass1.TabIndex = 3;
+            // 
+            // retrievePassword1
+            // 
+            this.retrievePassword1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.retrievePassword1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.retrievePassword1.Location = new System.Drawing.Point(0, 0);
+            this.retrievePassword1.Name = "retrievePassword1";
+            this.retrievePassword1.Size = new System.Drawing.Size(825, 402);
+            this.retrievePassword1.TabIndex = 2;
             // 
             // Dash
             // 
@@ -333,13 +378,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(933, 541);
-            this.Controls.Add(this.panelSlider);
+            this.Controls.Add(this.siticonePanel5);
             this.Controls.Add(this.siticonePanel2);
             this.Controls.Add(this.siticonePanel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Dash_Load);
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel1.PerformLayout();
             this.siticonePanel3.ResumeLayout(false);
@@ -348,6 +395,7 @@
             this.siticonePanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
+            this.siticonePanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -363,12 +411,16 @@
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox siticoneControlBox1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox siticoneControlBox2;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel panelSlider;
         private System.Windows.Forms.Label label1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
         private System.Windows.Forms.Label lblReminder1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel4;
         private System.Windows.Forms.Label lblReminder2;
         private Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm siticoneBorderlessForm1;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel5;
+        private UserControls.Home home1;
+        private UserControls.GenPass genPass1;
+        private UserControls.RetrievePassword retrievePassword1;
+        private UserControls.StorePassword storePassword1;
     }
 }

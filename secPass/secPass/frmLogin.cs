@@ -28,7 +28,7 @@ namespace secPass
         {
             bool empty = false;
 
-            if (String.IsNullOrWhiteSpace(txtUsername.Text) || String.IsNullOrWhiteSpace(txtMastP.Text))
+            if (String.IsNullOrWhiteSpace(txtLoginUserName.Text) || String.IsNullOrWhiteSpace(txtLoginMastP.Text))
             {
                 empty = true;
             }
@@ -52,8 +52,8 @@ namespace secPass
         /// </summary>
         public void getCred()
         {
-            LoginName = txtUsername.Text;
-            LoginPassword = txtMastP.Text;
+            LoginName = txtLoginUserName.Text;
+            LoginPassword = txtLoginMastP.Text;
         }
 
         /// <summary>
@@ -64,6 +64,11 @@ namespace secPass
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lblLoginHelp_MouseMove(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(lblLoginHelp, "If you havent logged in previously, please enter a username and master password to identify yourself and encrypt your credentials. You are unable to access or decrypt your data without this information");
         }
     }
 }

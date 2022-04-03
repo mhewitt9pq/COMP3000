@@ -30,9 +30,9 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.siticonePanel5 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.siticonePanel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,26 @@
             this.siticonePanel5.Size = new System.Drawing.Size(819, 302);
             this.siticonePanel5.TabIndex = 10;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(331, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Navigate to the \"Store Password\" tab";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(268, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "To store a password:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -75,26 +95,6 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Your secure password manager\r\n";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "To store a password:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(331, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Navigate to the \"Store Password\" tab";
             // 
             // Home
             // 

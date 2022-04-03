@@ -17,5 +17,25 @@ namespace secPass.UserControls
             InitializeComponent();
         }
 
+        private void RetrievePassword_Load(object sender, EventArgs e)
+        {
+            cListToDataGrid();
+        }
+
+        public void cListToDataGrid()
+        {
+            var custDataSource = Dash.credList.Select(x => new
+            {
+                Account = x.Account,
+                Password = x.Password,
+            }).ToList();
+
+            //This will assign the datasource. All the columns you listed will show up, and every row
+            //of data in the list will populate into the DataGridView.
+
+            credentialBindingSource.DataSource = custDataSource;
+        }
+
+        
     }
 }

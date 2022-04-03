@@ -189,6 +189,11 @@
   <ItemGroup>
     <None Include="Resources\Store_Password.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Lock_DGrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_DGrey.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
