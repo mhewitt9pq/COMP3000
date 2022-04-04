@@ -95,10 +95,17 @@ namespace secPass.UserControls
                     string pass = obj_aes.encrypt(txtMastPass.Text, txtPass.Text);
                     Credential tempCred = new Credential(passName + "," + pass);
                     Dash.credList.Add(tempCred);
-                    string thankMessage = "Thank you for storing " + txtName.Text.ToString();
+                    //Dash.cListToDataGrid();
+                    string thankMessage = "Thank you for storing your " + txtName.Text.ToString() + " credentials.";
                     string thankTitle = "Credential stored";
                     SaveToCsv(Dash.credList);
                     MessageBox.Show(thankMessage, thankTitle);
+
+                    //Clear the textboxes
+                    txtName.Clear();
+                    txtPass.Clear();
+                    txtConfPass.Clear();
+
                 }
                 else
                 {
@@ -106,7 +113,8 @@ namespace secPass.UserControls
                 }
             }
         }
-        private void SaveToCsv<T>(List<T> credData)
+
+        public static void SaveToCsv<T>(List<T> credData)
         {
             string path = Dash.fileName;
             var lines = new List<string>();
@@ -117,10 +125,6 @@ namespace secPass.UserControls
             lines.AddRange(valueLines);
             File.WriteAllLines(path, lines.ToArray());
         }
-
-
-
-
 
 
 
@@ -211,10 +215,6 @@ namespace secPass.UserControls
             return pass.Any(c => char.IsSymbol(c) || char.IsPunctuation(c));
         }
 
-        /*private void btnCopy_Click(object sender, EventArgs e)
-        {
-            copyToClip(lblRandPass.Text);
-        }*/
         public void copyToClip(string text)
         {
             string cText = text;

@@ -20,11 +20,21 @@ namespace secPass
         }
 
         /// <summary>
-        /// Stores user inputs
+        /// Gets user inputs and stores them
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnOk_Click(object sender, EventArgs e)
+        public void getCred()
+        {
+            LoginName = txtLoginUserName.Text;
+            LoginPassword = txtLoginMastP.Text;
+        }
+
+
+        private void lblLoginHelp_MouseMove(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(lblLoginHelp, "If you havent logged in previously, please enter a username and master password to identify yourself and encrypt your credentials. You are unable to access or decrypt your data without this information");
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             bool empty = false;
 
@@ -36,39 +46,20 @@ namespace secPass
             if (empty == true)
             {
                 MessageBox.Show("All fields must be filled. Please enter a username and masterpassword", "Alert");
-                
+
             }
             else if (empty == false)
             {
                 getCred();
                 this.Hide();
-                Form1 frm = new Form1();
+                Dash frm = new Dash();
                 frm.Show();
-            }            
+            }
         }
 
-        /// <summary>
-        /// Gets user inputs and stores them
-        /// </summary>
-        public void getCred()
-        {
-            LoginName = txtLoginUserName.Text;
-            LoginPassword = txtLoginMastP.Text;
-        }
-
-        /// <summary>
-        /// Closes application
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void lblLoginHelp_MouseMove(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(lblLoginHelp, "If you havent logged in previously, please enter a username and master password to identify yourself and encrypt your credentials. You are unable to access or decrypt your data without this information");
+            this.Close();
         }
     }
 }

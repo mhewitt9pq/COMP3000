@@ -37,5 +37,11 @@ namespace secPass.UserControls
             }
             return randPass.ToString();
         }
+
+        public void btnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblRandPass.Text);
+            MessageBox.Show("Password copied to clipboard!", "Attention");
+        }
     }
 }

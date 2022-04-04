@@ -28,7 +28,12 @@ namespace secPass
         }
 
         secController obj_aes;
-        static public  List<Credential> credList = new List<Credential>();
+        public static List<Credential> credList = new List<Credential>();
+
+        public List<Credential> getCreds()
+        {
+            return credList;
+        }
 
         private void Dash_Load(object sender, EventArgs e)
         {
@@ -131,8 +136,25 @@ namespace secPass
             if (btnGetPass.Checked)
             {
                 retrievePassword1.BringToFront();
+                cListToDataGrid();
             }
         }
+        public void cListToDataGrid()
+        {
+
+            var custDataSource = credList.Select(x => new
+            {
+                Account = x.Account,
+                Password = x.Password,
+            }).ToList();
+
+            //This will assign the datasource. All the columns you listed will show up, and every row
+            //of data in the list will populate into the DataGridView.
+
+            retrievePassword1.credentialBindingSource.DataSource = custDataSource;
+        }
+
+        
 
         private void btnGenPass_CheckedChanged(object sender, EventArgs e)
         {
@@ -142,6 +164,9 @@ namespace secPass
             }
         }
 
-        
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

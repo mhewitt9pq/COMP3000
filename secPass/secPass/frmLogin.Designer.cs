@@ -36,7 +36,7 @@
             this.txtLoginMastP = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtLoginUserName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.btnLogin = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.btnCancel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.lblLoginHelp = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.siticonePanel1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.txtLoginMastP.SelectedText = "";
             this.txtLoginMastP.ShadowDecoration.Parent = this.txtLoginMastP;
             this.txtLoginMastP.Size = new System.Drawing.Size(200, 39);
-            this.txtLoginMastP.TabIndex = 10;
+            this.txtLoginMastP.TabIndex = 2;
             this.txtLoginMastP.TextOffset = new System.Drawing.Point(7, 0);
             // 
             // txtLoginUserName
@@ -133,7 +133,7 @@
             this.txtLoginUserName.SelectedText = "";
             this.txtLoginUserName.ShadowDecoration.Parent = this.txtLoginUserName;
             this.txtLoginUserName.Size = new System.Drawing.Size(200, 39);
-            this.txtLoginUserName.TabIndex = 11;
+            this.txtLoginUserName.TabIndex = 1;
             this.txtLoginUserName.TextOffset = new System.Drawing.Point(7, 0);
             // 
             // btnLogin
@@ -163,34 +163,36 @@
             this.btnLogin.Size = new System.Drawing.Size(90, 40);
             this.btnLogin.TabIndex = 15;
             this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // siticoneButton3
+            // btnCancel
             // 
-            this.siticoneButton3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton3.BorderColor = System.Drawing.Color.White;
-            this.siticoneButton3.BorderRadius = 8;
-            this.siticoneButton3.BorderThickness = 1;
-            this.siticoneButton3.CheckedState.Parent = this.siticoneButton3;
-            this.siticoneButton3.CustomImages.Parent = this.siticoneButton3;
-            this.siticoneButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton3.DisabledState.Parent = this.siticoneButton3;
-            this.siticoneButton3.FillColor = System.Drawing.Color.Transparent;
-            this.siticoneButton3.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton3.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton3.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.siticoneButton3.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.siticoneButton3.HoverState.ForeColor = System.Drawing.Color.Red;
-            this.siticoneButton3.HoverState.Parent = this.siticoneButton3;
-            this.siticoneButton3.Location = new System.Drawing.Point(56, 263);
-            this.siticoneButton3.Name = "siticoneButton3";
-            this.siticoneButton3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.siticoneButton3.ShadowDecoration.Parent = this.siticoneButton3;
-            this.siticoneButton3.Size = new System.Drawing.Size(90, 40);
-            this.siticoneButton3.TabIndex = 16;
-            this.siticoneButton3.Text = "Cancel";
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.BorderColor = System.Drawing.Color.White;
+            this.btnCancel.BorderRadius = 8;
+            this.btnCancel.BorderThickness = 1;
+            this.btnCancel.CheckedState.Parent = this.btnCancel;
+            this.btnCancel.CustomImages.Parent = this.btnCancel;
+            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel.DisabledState.Parent = this.btnCancel;
+            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Red;
+            this.btnCancel.HoverState.Parent = this.btnCancel;
+            this.btnCancel.Location = new System.Drawing.Point(56, 263);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
+            this.btnCancel.Size = new System.Drawing.Size(90, 40);
+            this.btnCancel.TabIndex = 16;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblLoginHelp
             // 
@@ -213,7 +215,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(249, 312);
             this.Controls.Add(this.lblLoginHelp);
-            this.Controls.Add(this.siticoneButton3);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtLoginUserName);
             this.Controls.Add(this.txtLoginMastP);
@@ -238,7 +240,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLoginMastP;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnLogin;
         private System.Windows.Forms.Label lblLoginHelp;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnCancel;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

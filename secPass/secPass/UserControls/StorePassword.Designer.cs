@@ -122,7 +122,7 @@
             this.txtPass.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtPass.FocusedState.Parent = this.txtPass;
             this.txtPass.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtPass.ForeColor = System.Drawing.Color.White;
+            this.txtPass.ForeColor = System.Drawing.Color.LightGray;
             this.txtPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPass.HoverState.Parent = this.txtPass;
             this.txtPass.Location = new System.Drawing.Point(226, 140);
@@ -153,7 +153,7 @@
             this.txtConfPass.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtConfPass.FocusedState.Parent = this.txtConfPass;
             this.txtConfPass.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtConfPass.ForeColor = System.Drawing.Color.White;
+            this.txtConfPass.ForeColor = System.Drawing.Color.LightGray;
             this.txtConfPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtConfPass.HoverState.Parent = this.txtConfPass;
             this.txtConfPass.Location = new System.Drawing.Point(226, 177);
@@ -184,13 +184,13 @@
             this.txtName.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtName.FocusedState.Parent = this.txtName;
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtName.ForeColor = System.Drawing.Color.White;
+            this.txtName.ForeColor = System.Drawing.Color.LightGray;
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.HoverState.Parent = this.txtName;
             this.txtName.Location = new System.Drawing.Point(226, 84);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.PasswordChar = '*';
+            this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
             this.txtName.ShadowDecoration.Parent = this.txtName;
@@ -256,6 +256,7 @@
             this.txtMastPass.Size = new System.Drawing.Size(165, 29);
             this.txtMastPass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
             this.txtMastPass.TabIndex = 3;
+            this.txtMastPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -275,7 +276,7 @@
             this.siticonePanel3.BorderThickness = 2;
             this.siticonePanel3.Controls.Add(this.label7);
             this.siticonePanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
-            this.siticonePanel3.Location = new System.Drawing.Point(41, 221);
+            this.siticonePanel3.Location = new System.Drawing.Point(41, 224);
             this.siticonePanel3.Name = "siticonePanel3";
             this.siticonePanel3.ShadowDecoration.Parent = this.siticonePanel3;
             this.siticonePanel3.Size = new System.Drawing.Size(338, 64);
@@ -300,7 +301,7 @@
             this.siticonePanel4.BorderThickness = 2;
             this.siticonePanel4.Controls.Add(this.label8);
             this.siticonePanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
-            this.siticonePanel4.Location = new System.Drawing.Point(41, 324);
+            this.siticonePanel4.Location = new System.Drawing.Point(41, 343);
             this.siticonePanel4.Name = "siticonePanel4";
             this.siticonePanel4.ShadowDecoration.Parent = this.siticonePanel4;
             this.siticonePanel4.Size = new System.Drawing.Size(338, 53);
@@ -326,7 +327,7 @@
             this.siticonePanel5.BorderThickness = 2;
             this.siticonePanel5.Controls.Add(this.label6);
             this.siticonePanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
-            this.siticonePanel5.Location = new System.Drawing.Point(41, 126);
+            this.siticonePanel5.Location = new System.Drawing.Point(41, 113);
             this.siticonePanel5.Name = "siticonePanel5";
             this.siticonePanel5.ShadowDecoration.Parent = this.siticonePanel5;
             this.siticonePanel5.Size = new System.Drawing.Size(338, 53);
@@ -349,9 +350,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Lucida Sans Typewriter", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Lucida Sans Typewriter", 19F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(156, 91);
+            this.label3.Location = new System.Drawing.Point(156, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 29);
             this.label3.TabIndex = 8;
@@ -361,9 +362,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans Typewriter", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Lucida Sans Typewriter", 19F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(156, 186);
+            this.label4.Location = new System.Drawing.Point(156, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 29);
             this.label4.TabIndex = 10;
@@ -373,9 +374,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Lucida Sans Typewriter", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Lucida Sans Typewriter", 19F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(156, 291);
+            this.label5.Location = new System.Drawing.Point(156, 302);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 29);
             this.label5.TabIndex = 11;
@@ -421,7 +422,7 @@
             this.siticonePanel6.Controls.Add(this.txtConfPass);
             this.siticonePanel6.Controls.Add(this.txtPass);
             this.siticonePanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
-            this.siticonePanel6.Location = new System.Drawing.Point(420, 112);
+            this.siticonePanel6.Location = new System.Drawing.Point(419, 121);
             this.siticonePanel6.Name = "siticonePanel6";
             this.siticonePanel6.ShadowDecoration.Parent = this.siticonePanel6;
             this.siticonePanel6.Size = new System.Drawing.Size(405, 275);

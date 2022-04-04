@@ -35,25 +35,25 @@
             this.siticonePanel4 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.lblReminder2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.btnExit = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneControlBox2 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
+            this.btnGenPass = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.btnHome = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.btnStoreP = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnGetPass = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.btnGenPass = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneControlBox1 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
-            this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticoneControlBox2 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
+            this.btnStoreP = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneBorderlessForm1 = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
             this.siticonePanel5 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.storePassword1 = new secPass.UserControls.StorePassword();
             this.home1 = new secPass.UserControls.Home();
             this.genPass1 = new secPass.UserControls.GenPass();
             this.retrievePassword1 = new secPass.UserControls.RetrievePassword();
+            this.storePassword1 = new secPass.UserControls.StorePassword();
             this.siticonePanel1.SuspendLayout();
             this.siticonePanel3.SuspendLayout();
             this.siticonePanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticonePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticonePanel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +130,95 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SecPass 2022";
             // 
+            // siticonePanel2
+            // 
+            this.siticonePanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(18)))), ((int)(((byte)(26)))));
+            this.siticonePanel2.BorderThickness = 2;
+            this.siticonePanel2.Controls.Add(this.btnExit);
+            this.siticonePanel2.Controls.Add(this.siticoneControlBox2);
+            this.siticonePanel2.Controls.Add(this.btnGenPass);
+            this.siticonePanel2.Controls.Add(this.siticonePictureBox1);
+            this.siticonePanel2.Controls.Add(this.btnHome);
+            this.siticonePanel2.Controls.Add(this.btnGetPass);
+            this.siticonePanel2.Controls.Add(this.btnStoreP);
+            this.siticonePanel2.CustomBorderColor = System.Drawing.Color.Black;
+            this.siticonePanel2.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.siticonePanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.siticonePanel2.Location = new System.Drawing.Point(0, 0);
+            this.siticonePanel2.Name = "siticonePanel2";
+            this.siticonePanel2.ShadowDecoration.Parent = this.siticonePanel2;
+            this.siticonePanel2.Size = new System.Drawing.Size(933, 78);
+            this.siticonePanel2.TabIndex = 7;
+            // 
+            // btnExit
+            // 
+            this.btnExit.CheckedState.Parent = this.btnExit;
+            this.btnExit.CustomImages.Parent = this.btnExit;
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.DisabledState.Parent = this.btnExit;
+            this.btnExit.FillColor = System.Drawing.Color.Transparent;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.HoverState.ForeColor = System.Drawing.Color.Red;
+            this.btnExit.HoverState.Parent = this.btnExit;
+            this.btnExit.Location = new System.Drawing.Point(886, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.ShadowDecoration.Parent = this.btnExit;
+            this.btnExit.Size = new System.Drawing.Size(44, 46);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "X";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // siticoneControlBox2
+            // 
+            this.siticoneControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneControlBox2.ControlBoxStyle = Siticone.Desktop.UI.WinForms.Enums.ControlBoxStyle.Custom;
+            this.siticoneControlBox2.ControlBoxType = Siticone.Desktop.UI.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.siticoneControlBox2.FillColor = System.Drawing.Color.Transparent;
+            this.siticoneControlBox2.HoverState.IconColor = System.Drawing.Color.Red;
+            this.siticoneControlBox2.HoverState.Parent = this.siticoneControlBox2;
+            this.siticoneControlBox2.IconColor = System.Drawing.Color.White;
+            this.siticoneControlBox2.Location = new System.Drawing.Point(843, 0);
+            this.siticoneControlBox2.Name = "siticoneControlBox2";
+            this.siticoneControlBox2.ShadowDecoration.Parent = this.siticoneControlBox2;
+            this.siticoneControlBox2.Size = new System.Drawing.Size(44, 46);
+            this.siticoneControlBox2.TabIndex = 7;
+            // 
+            // btnGenPass
+            // 
+            this.btnGenPass.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnGenPass.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnGenPass.CheckedState.Parent = this.btnGenPass;
+            this.btnGenPass.CustomBorderColor = System.Drawing.Color.Black;
+            this.btnGenPass.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnGenPass.CustomImages.Parent = this.btnGenPass;
+            this.btnGenPass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGenPass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGenPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGenPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGenPass.DisabledState.Parent = this.btnGenPass;
+            this.btnGenPass.FillColor = System.Drawing.Color.Empty;
+            this.btnGenPass.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenPass.ForeColor = System.Drawing.Color.White;
+            this.btnGenPass.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnGenPass.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnGenPass.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
+            this.btnGenPass.HoverState.Parent = this.btnGenPass;
+            this.btnGenPass.Image = global::secPass.Properties.Resources.Gen_Pass;
+            this.btnGenPass.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGenPass.ImageSize = new System.Drawing.Size(38, 38);
+            this.btnGenPass.Location = new System.Drawing.Point(647, -1);
+            this.btnGenPass.Name = "btnGenPass";
+            this.btnGenPass.ShadowDecoration.Parent = this.btnGenPass;
+            this.btnGenPass.Size = new System.Drawing.Size(171, 78);
+            this.btnGenPass.TabIndex = 5;
+            this.btnGenPass.Text = "Generate Password";
+            this.btnGenPass.TextOffset = new System.Drawing.Point(18, 0);
+            this.btnGenPass.CheckedChanged += new System.EventHandler(this.btnGenPass_CheckedChanged);
+            // 
             // siticonePictureBox1
             // 
             this.siticonePictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -175,38 +264,6 @@
             this.btnHome.Text = "Home";
             this.btnHome.CheckedChanged += new System.EventHandler(this.btnHome_CheckedChanged);
             // 
-            // btnStoreP
-            // 
-            this.btnStoreP.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnStoreP.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.btnStoreP.CheckedState.Parent = this.btnStoreP;
-            this.btnStoreP.CustomBorderColor = System.Drawing.Color.Black;
-            this.btnStoreP.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.btnStoreP.CustomImages.Parent = this.btnStoreP;
-            this.btnStoreP.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStoreP.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStoreP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStoreP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStoreP.DisabledState.Parent = this.btnStoreP;
-            this.btnStoreP.FillColor = System.Drawing.Color.Empty;
-            this.btnStoreP.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStoreP.ForeColor = System.Drawing.Color.White;
-            this.btnStoreP.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.btnStoreP.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            this.btnStoreP.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
-            this.btnStoreP.HoverState.Parent = this.btnStoreP;
-            this.btnStoreP.Image = global::secPass.Properties.Resources.Store_Password;
-            this.btnStoreP.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStoreP.ImageOffset = new System.Drawing.Point(5, 0);
-            this.btnStoreP.Location = new System.Drawing.Point(323, -1);
-            this.btnStoreP.Name = "btnStoreP";
-            this.btnStoreP.ShadowDecoration.Parent = this.btnStoreP;
-            this.btnStoreP.Size = new System.Drawing.Size(162, 78);
-            this.btnStoreP.TabIndex = 3;
-            this.btnStoreP.Text = "Store Password";
-            this.btnStoreP.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnStoreP.CheckedChanged += new System.EventHandler(this.btnStoreP_CheckedChanged);
-            // 
             // btnGetPass
             // 
             this.btnGetPass.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
@@ -239,86 +296,37 @@
             this.btnGetPass.TextOffset = new System.Drawing.Point(12, 0);
             this.btnGetPass.CheckedChanged += new System.EventHandler(this.btnGetPass_CheckedChanged);
             // 
-            // btnGenPass
+            // btnStoreP
             // 
-            this.btnGenPass.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnGenPass.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.btnGenPass.CheckedState.Parent = this.btnGenPass;
-            this.btnGenPass.CustomBorderColor = System.Drawing.Color.Black;
-            this.btnGenPass.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.btnGenPass.CustomImages.Parent = this.btnGenPass;
-            this.btnGenPass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGenPass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGenPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGenPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGenPass.DisabledState.Parent = this.btnGenPass;
-            this.btnGenPass.FillColor = System.Drawing.Color.Empty;
-            this.btnGenPass.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenPass.ForeColor = System.Drawing.Color.White;
-            this.btnGenPass.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.btnGenPass.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            this.btnGenPass.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
-            this.btnGenPass.HoverState.Parent = this.btnGenPass;
-            this.btnGenPass.Image = global::secPass.Properties.Resources.Gen_Pass;
-            this.btnGenPass.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGenPass.ImageSize = new System.Drawing.Size(38, 38);
-            this.btnGenPass.Location = new System.Drawing.Point(647, -1);
-            this.btnGenPass.Name = "btnGenPass";
-            this.btnGenPass.ShadowDecoration.Parent = this.btnGenPass;
-            this.btnGenPass.Size = new System.Drawing.Size(171, 78);
-            this.btnGenPass.TabIndex = 5;
-            this.btnGenPass.Text = "Generate Password";
-            this.btnGenPass.TextOffset = new System.Drawing.Point(18, 0);
-            this.btnGenPass.CheckedChanged += new System.EventHandler(this.btnGenPass_CheckedChanged);
-            // 
-            // siticoneControlBox1
-            // 
-            this.siticoneControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.siticoneControlBox1.ControlBoxStyle = Siticone.Desktop.UI.WinForms.Enums.ControlBoxStyle.Custom;
-            this.siticoneControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.siticoneControlBox1.HoverState.IconColor = System.Drawing.Color.Red;
-            this.siticoneControlBox1.HoverState.Parent = this.siticoneControlBox1;
-            this.siticoneControlBox1.IconColor = System.Drawing.Color.White;
-            this.siticoneControlBox1.Location = new System.Drawing.Point(874, 0);
-            this.siticoneControlBox1.Name = "siticoneControlBox1";
-            this.siticoneControlBox1.ShadowDecoration.Parent = this.siticoneControlBox1;
-            this.siticoneControlBox1.Size = new System.Drawing.Size(59, 46);
-            this.siticoneControlBox1.TabIndex = 6;
-            // 
-            // siticonePanel2
-            // 
-            this.siticonePanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(18)))), ((int)(((byte)(26)))));
-            this.siticonePanel2.BorderThickness = 2;
-            this.siticonePanel2.Controls.Add(this.siticoneControlBox2);
-            this.siticonePanel2.Controls.Add(this.btnGenPass);
-            this.siticonePanel2.Controls.Add(this.siticoneControlBox1);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox1);
-            this.siticonePanel2.Controls.Add(this.btnHome);
-            this.siticonePanel2.Controls.Add(this.btnGetPass);
-            this.siticonePanel2.Controls.Add(this.btnStoreP);
-            this.siticonePanel2.CustomBorderColor = System.Drawing.Color.Black;
-            this.siticonePanel2.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.siticonePanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.siticonePanel2.Location = new System.Drawing.Point(0, 0);
-            this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.ShadowDecoration.Parent = this.siticonePanel2;
-            this.siticonePanel2.Size = new System.Drawing.Size(933, 78);
-            this.siticonePanel2.TabIndex = 7;
-            // 
-            // siticoneControlBox2
-            // 
-            this.siticoneControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.siticoneControlBox2.ControlBoxStyle = Siticone.Desktop.UI.WinForms.Enums.ControlBoxStyle.Custom;
-            this.siticoneControlBox2.ControlBoxType = Siticone.Desktop.UI.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.siticoneControlBox2.FillColor = System.Drawing.Color.Transparent;
-            this.siticoneControlBox2.HoverState.IconColor = System.Drawing.Color.Red;
-            this.siticoneControlBox2.HoverState.Parent = this.siticoneControlBox2;
-            this.siticoneControlBox2.IconColor = System.Drawing.Color.White;
-            this.siticoneControlBox2.Location = new System.Drawing.Point(815, 0);
-            this.siticoneControlBox2.Name = "siticoneControlBox2";
-            this.siticoneControlBox2.ShadowDecoration.Parent = this.siticoneControlBox2;
-            this.siticoneControlBox2.Size = new System.Drawing.Size(59, 46);
-            this.siticoneControlBox2.TabIndex = 7;
+            this.btnStoreP.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnStoreP.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnStoreP.CheckedState.Parent = this.btnStoreP;
+            this.btnStoreP.CustomBorderColor = System.Drawing.Color.Black;
+            this.btnStoreP.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnStoreP.CustomImages.Parent = this.btnStoreP;
+            this.btnStoreP.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStoreP.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStoreP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStoreP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStoreP.DisabledState.Parent = this.btnStoreP;
+            this.btnStoreP.FillColor = System.Drawing.Color.Empty;
+            this.btnStoreP.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStoreP.ForeColor = System.Drawing.Color.White;
+            this.btnStoreP.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnStoreP.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnStoreP.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
+            this.btnStoreP.HoverState.Parent = this.btnStoreP;
+            this.btnStoreP.Image = global::secPass.Properties.Resources.Store_Password;
+            this.btnStoreP.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStoreP.ImageOffset = new System.Drawing.Point(5, 0);
+            this.btnStoreP.Location = new System.Drawing.Point(323, -1);
+            this.btnStoreP.Name = "btnStoreP";
+            this.btnStoreP.ShadowDecoration.Parent = this.btnStoreP;
+            this.btnStoreP.Size = new System.Drawing.Size(162, 78);
+            this.btnStoreP.TabIndex = 3;
+            this.btnStoreP.Text = "Store Password";
+            this.btnStoreP.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnStoreP.CheckedChanged += new System.EventHandler(this.btnStoreP_CheckedChanged);
             // 
             // siticoneBorderlessForm1
             // 
@@ -326,24 +334,15 @@
             // 
             // siticonePanel5
             // 
-            this.siticonePanel5.Controls.Add(this.storePassword1);
             this.siticonePanel5.Controls.Add(this.home1);
             this.siticonePanel5.Controls.Add(this.genPass1);
             this.siticonePanel5.Controls.Add(this.retrievePassword1);
+            this.siticonePanel5.Controls.Add(this.storePassword1);
             this.siticonePanel5.Location = new System.Drawing.Point(49, 87);
             this.siticonePanel5.Name = "siticonePanel5";
             this.siticonePanel5.ShadowDecoration.Parent = this.siticonePanel5;
             this.siticonePanel5.Size = new System.Drawing.Size(825, 402);
             this.siticonePanel5.TabIndex = 8;
-            // 
-            // storePassword1
-            // 
-            this.storePassword1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
-            this.storePassword1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.storePassword1.Location = new System.Drawing.Point(0, 0);
-            this.storePassword1.Name = "storePassword1";
-            this.storePassword1.Size = new System.Drawing.Size(825, 402);
-            this.storePassword1.TabIndex = 1;
             // 
             // home1
             // 
@@ -372,6 +371,15 @@
             this.retrievePassword1.Size = new System.Drawing.Size(825, 402);
             this.retrievePassword1.TabIndex = 2;
             // 
+            // storePassword1
+            // 
+            this.storePassword1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.storePassword1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.storePassword1.Location = new System.Drawing.Point(0, 0);
+            this.storePassword1.Name = "storePassword1";
+            this.storePassword1.Size = new System.Drawing.Size(825, 402);
+            this.storePassword1.TabIndex = 1;
+            // 
             // Dash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,8 +401,8 @@
             this.siticonePanel3.PerformLayout();
             this.siticonePanel4.ResumeLayout(false);
             this.siticonePanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.siticonePanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -408,7 +416,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnStoreP;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnGetPass;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnGenPass;
-        private Siticone.Desktop.UI.WinForms.SiticoneControlBox siticoneControlBox1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox siticoneControlBox2;
         private System.Windows.Forms.Label label1;
@@ -422,5 +429,6 @@
         private UserControls.GenPass genPass1;
         private UserControls.RetrievePassword retrievePassword1;
         private UserControls.StorePassword storePassword1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnExit;
     }
 }

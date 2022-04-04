@@ -120,6 +120,7 @@
             this.btnCopy.Size = new System.Drawing.Size(156, 77);
             this.btnCopy.TabIndex = 14;
             this.btnCopy.Text = "Copy To Clipboard";
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // lblRandPass
             // 
@@ -132,6 +133,7 @@
             this.lblRandPass.Size = new System.Drawing.Size(398, 31);
             this.lblRandPass.TabIndex = 12;
             this.lblRandPass.Text = "Your Password Will Appear Here ";
+            this.lblRandPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siticonePanel1
             // 
