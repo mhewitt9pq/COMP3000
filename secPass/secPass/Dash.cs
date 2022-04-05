@@ -30,11 +30,6 @@ namespace secPass
         secController obj_aes;
         public static List<Credential> credList = new List<Credential>();
 
-        public List<Credential> getCreds()
-        {
-            return credList;
-        }
-
         private void Dash_Load(object sender, EventArgs e)
         {
             usrName = frmLogin.LoginName;
@@ -98,23 +93,6 @@ namespace secPass
             return credList;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private void btnHome_CheckedChanged(object sender, EventArgs e)
         {
             if (btnHome.Checked)
@@ -154,8 +132,6 @@ namespace secPass
             retrievePassword1.credentialBindingSource.DataSource = custDataSource;
         }
 
-        
-
         private void btnGenPass_CheckedChanged(object sender, EventArgs e)
         {
             if (btnGenPass.Checked)
@@ -163,7 +139,6 @@ namespace secPass
                 genPass1.BringToFront();
             }
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
