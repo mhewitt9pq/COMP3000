@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace secPass
 {
-    class secController
+    public class secController
     {
         /// <summary>
         /// AES encryption/decryption handler
@@ -40,13 +40,13 @@ namespace secPass
         /// <summary>
         /// Decryption using AES256 and master password 
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="mastPass"></param>
         /// <param name="cryptText"></param>
         /// <returns></returns>
-        public string decrypt(string key, string cryptText)
+        public string decrypt(string mastPass, string cryptText)
         {
             string decData = null;
-            byte[][] keys = getHashKeys(key);
+            byte[][] keys = getHashKeys(mastPass);
 
             try
             {

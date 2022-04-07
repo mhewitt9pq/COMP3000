@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "secPass", "secPass\secPass.csproj", "{61DC2936-DA5E-41AA-9435-36968E01DF91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecPassTests", "SecPassTests\SecPassTests.csproj", "{5CA06C26-9A86-4B93-A968-4A405E919455}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{61DC2936-DA5E-41AA-9435-36968E01DF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61DC2936-DA5E-41AA-9435-36968E01DF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61DC2936-DA5E-41AA-9435-36968E01DF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CA06C26-9A86-4B93-A968-4A405E919455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA06C26-9A86-4B93-A968-4A405E919455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA06C26-9A86-4B93-A968-4A405E919455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA06C26-9A86-4B93-A968-4A405E919455}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

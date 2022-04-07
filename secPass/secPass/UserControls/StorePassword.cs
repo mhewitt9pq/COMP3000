@@ -24,7 +24,6 @@ namespace secPass.UserControls
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             bool store = false;
             string passName = txtName.Text;
 
@@ -92,26 +91,31 @@ namespace secPass.UserControls
                 }
                 if (store == true)
                 {
-                    string pass = obj_aes.encrypt(txtMastPass.Text, txtPass.Text);
-                    Credential tempCred = new Credential(passName + "," + pass);
-                    Dash.credList.Add(tempCred);
-                    //Dash.cListToDataGrid();
-                    string thankMessage = "Thank you for storing your " + txtName.Text.ToString() + " credentials.";
-                    string thankTitle = "Credential stored";
-                    SaveToCsv(Dash.credList);
-                    MessageBox.Show(thankMessage, thankTitle);
-
-                    //Clear the textboxes
-                    txtName.Clear();
-                    txtPass.Clear();
-                    txtConfPass.Clear();
-
+                    encryptSave(txtMastPass.Text, txtPass.Text, passName);
                 }
                 else
                 {
                     return;
                 }
             }
+        }
+
+        public void encryptSave(string mastP, string Pass, string name)
+        {
+            string pass = obj_aes.encrypt(mastP, Pass);
+
+            Credential tempCred = new Credential(name + "," + pass);
+            Dash.credList.Add(tempCred);
+            //Dash.cListToDataGrid();
+            string thankMessage = "Thank you for storing your " + txtName.Text.ToString() + " credentials.";
+            string thankTitle = "Credential stored";
+            SaveToCsv(Dash.credList);
+            MessageBox.Show(thankMessage, thankTitle);
+
+            //Clear the textboxes
+            txtName.Clear();
+            txtPass.Clear();
+            txtConfPass.Clear();
         }
 
         public static void SaveToCsv<T>(List<T> credData)
@@ -125,8 +129,6 @@ namespace secPass.UserControls
             lines.AddRange(valueLines);
             File.WriteAllLines(path, lines.ToArray());
         }
-
-
 
         public static int strengthCheck(string pass)
         {
@@ -171,7 +173,6 @@ namespace secPass.UserControls
             {
                 strengthScore++;
             }
-
             return strengthScore;
         }
 
@@ -215,6 +216,10 @@ namespace secPass.UserControls
             return pass.Any(c => char.IsSymbol(c) || char.IsPunctuation(c));
         }
 
+        /// <summary>
+        /// Copies input text to clipboard
+        /// </summary>
+        /// <param name="text"></param>
         public void copyToClip(string text)
         {
             string cText = text;
@@ -222,6 +227,5 @@ namespace secPass.UserControls
             MessageBox.Show("Password copied to clipboard!", "Attention");
 
         }
-
     }
 }
