@@ -53,34 +53,87 @@ namespace SecPassTests
         }
 
         [TestMethod]
-        public void strengthTest()
+        public void strengthTest1()
         {
             //Arrange
-            string strongpass = "T3stpassword!";
-            string weakpass1 = "password";
-            string weakpass2 = "password1";
-            string weakpass3 = "weakpassword123";
-            string weakpass4 = "weakpassword123!";
-            string weakpass5 = "Weakpassword123!";
-
-
-
-            string cryptText = "aKBNsu6q4FCkX3EM93lnYg==";
-            string massPassT = "mastp";
-            secController sec = new secController();
+            string weakpass1 = "pass";
+            int strengthScore;
 
             //Act
-            string dec = sec.decrypt(massPassT, cryptText);
+            strengthScore = secPass.UserControls.StorePassword.strengthCheck(weakpass1);
 
             //Assert
-            Assert.AreEqual("secret123", dec);
+            Assert.AreEqual(1, strengthScore);
         }
-        string strongpass = "T3stpassword!";
 
-        string weakpass1 = "password";
-        string weakpass2 = "password1";
-        string weakpass3 = "weakpassword123";
-        string weakpass4 = "weakpassword123!";
-        string weakpass5 = "Weakpassword123!";
+        [TestMethod]
+        public void strengthTest2()
+        {
+            //Arrange
+            string weakpass2 = "password";
+            int strengthScore;
+
+            //Act
+            strengthScore = secPass.UserControls.StorePassword.strengthCheck(weakpass2);
+
+            //Assert
+            Assert.AreEqual(2, strengthScore);
+        }
+
+        [TestMethod]
+        public void strengthTest3()
+        {
+            //Arrange
+            string weakpass3 = "password1";
+            int strengthScore;
+
+            //Act
+            strengthScore = secPass.UserControls.StorePassword.strengthCheck(weakpass3);
+
+            //Assert
+            Assert.AreEqual(3, strengthScore);
+        }
+
+        [TestMethod]
+        public void strengthTest4()
+        {
+            //Arrange
+            string weakpass4 = "weakpassword123";
+            int strengthScore;
+
+            //Act
+            strengthScore = secPass.UserControls.StorePassword.strengthCheck(weakpass4);
+
+            //Assert
+            Assert.AreEqual(4, strengthScore);
+        }
+
+        [TestMethod]
+        public void strengthTest5()
+        {
+            //Arrange
+            string weakpass5 = "weakpassword123!";
+            int strengthScore;
+
+            //Act
+            strengthScore = secPass.UserControls.StorePassword.strengthCheck(weakpass5);
+
+            //Assert
+            Assert.AreEqual(5, strengthScore);
+        }
+
+        [TestMethod]
+        public void strengthTest6()
+        {
+            //Arrange
+            string weakpass6 = "Weakpassword123!";
+            int strengthScore;
+
+            //Act
+            strengthScore = secPass.UserControls.StorePassword.strengthCheck(weakpass6);
+
+            //Assert
+            Assert.AreEqual(6, strengthScore);
+        }
     }
 }
