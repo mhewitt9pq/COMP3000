@@ -17,12 +17,22 @@ namespace secPass.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Calls generate pass and displays it 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenPass_Click(object sender, EventArgs e)
         {
             string randomPass = "";
             randomPass = generatePass();
             lblRandPass.Text = randomPass;
         }
+
+        /// <summary>
+        /// Generates strong password
+        /// </summary>
+        /// <returns></returns>
         public static string generatePass()
         {
             int passLengthMin = 12;
@@ -38,6 +48,11 @@ namespace secPass.UserControls
             return randPass.ToString();
         }
 
+        /// <summary>
+        /// Copies generated password to clipboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void btnCopy_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblRandPass.Text);

@@ -25,11 +25,11 @@ namespace secPass
         public string encrypt(string mastPass, string plainTxt)
         {
             string encData = null;
-            byte[][] keys = getHashKeys(mastPass);
+            byte[][] keys = getKeys(mastPass);
 
             try
             {
-                encData = encryptPlainToBytes(plainTxt, keys[0], keys[1]);
+                encData = plainToBytes(plainTxt, keys[0], keys[1]);
             }
             catch (CryptographicException) { }
             catch (ArgumentNullException) { }
@@ -46,11 +46,11 @@ namespace secPass
         public string decrypt(string mastPass, string cryptText)
         {
             string decData = null;
-            byte[][] keys = getHashKeys(mastPass);
+            byte[][] keys = getKeys(mastPass);
 
             try
             {
-                decData = encryptCryptToBytes(cryptText, keys[0], keys[1]);
+                decData = cryptToBytes(cryptText, keys[0], keys[1]);
             }
             catch (CryptographicException) { }
             catch (ArgumentNullException) { }
@@ -59,23 +59,21 @@ namespace secPass
         }
 
         /// <summary>
-        /// Calculates hash value of entered master password
+        /// Calculates hash value of master password to be used as key and IV
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        private byte[][] getHashKeys(string key)
+        private byte[][] getKeys(string key)
         {
             byte[][] hashedKey = new byte[2][];
             Encoding enc = Encoding.UTF8;
-
-            SHA256 sha2 = new SHA256CryptoServiceProvider();
-
+            SHA256 sha = new SHA256CryptoServiceProvider();
             byte[] rawKey = enc.GetBytes(key);
             byte[] rawIV = enc.GetBytes(key);
+            byte[] hashKey = sha.ComputeHash(rawKey);
+            byte[] hashIV = sha.ComputeHash(rawIV);
 
-            byte[] hashKey = sha2.ComputeHash(rawKey);
-            byte[] hashIV = sha2.ComputeHash(rawIV);
-
+            //Resize as IV is 128 bit
             Array.Resize(ref hashIV, 16);
 
             hashedKey[0] = hashKey;
@@ -112,7 +110,7 @@ namespace secPass
         /// <param name="Key"></param>
         /// <param name="IV"></param>
         /// <returns></returns>
-        private string encryptPlainToBytes(string pTxt, byte[] Key, byte[] IV)
+        private string plainToBytes(string pTxt, byte[] Key, byte[] IV)
         {
             byte[] encryptedText;
             using (AesManaged aesAlg = new AesManaged())
@@ -146,7 +144,7 @@ namespace secPass
         /// <param name="IV"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        private static string encryptCryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
+        private static string cryptToBytes(string cipherTextString, byte[] Key, byte[] IV)
         {
             byte[] cipherText = Convert.FromBase64String(cipherTextString);
 

@@ -26,8 +26,6 @@ namespace secPass
             this.Account = data[0];
             this.Password = data[1];
         }
-        public Credential()
-        {
-        }
     }
 }
+

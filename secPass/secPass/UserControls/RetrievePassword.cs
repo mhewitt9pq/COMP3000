@@ -18,7 +18,15 @@ namespace secPass.UserControls
             obj_aes = new secController();
         }
         secController obj_aes;
-        
+
+        int rowIndex = 0;
+        int oldRowIndex;
+
+        /// <summary>
+        /// Displays credential in plaintext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDisplay_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtUpdateMastP.Text))
@@ -29,13 +37,8 @@ namespace secPass.UserControls
             else
             {
                 txtUpdateName.Text = dgvCreds.CurrentRow.Cells[0].Value.ToString();
-
-                //txtUpdatePass.Text = dgvCreds.CurrentRow.Cells[1].Value.ToString();
-
                 string updateMastPass = txtUpdateMastP.Text;
-
                 string encPass = dgvCreds.CurrentRow.Cells[1].Value.ToString();
-
                 string plainTxtPass = obj_aes.decrypt(updateMastPass, encPass);
 
                 if (String.IsNullOrWhiteSpace(plainTxtPass))
@@ -47,11 +50,15 @@ namespace secPass.UserControls
                 else
                 {
                     txtUpdatePass.Text = plainTxtPass;
-                }
-                
+                }                
             }            
         }
 
+        /// <summary>
+        /// Saves updated credential list to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtUpdateName.Text) ||
@@ -85,6 +92,9 @@ namespace secPass.UserControls
             }            
         }
 
+        /// <summary>
+        /// Refreshes datagrid with updated data
+        /// </summary>
         public void updateData()
         {
             var custDataSource = Dash.credList.Select(x => new
@@ -95,16 +105,19 @@ namespace secPass.UserControls
 
             //This will assign the datasource. All the columns you listed will show up, and every row
             //of data in the list will populate into the DataGridView.
-
             credentialBindingSource.DataSource = custDataSource;
         }
 
+        /// <summary>
+        /// Deletes selected credential
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string tAcc = "";
             string message = "You must select a record before you attempt to delete it.";
             string title = "Attention!";
-
 
             try
             {
@@ -125,29 +138,39 @@ namespace secPass.UserControls
 
                 MessageBox.Show(message, title);
             }
-            //Add password so wont give error if have two acc names the same
-            var c = Dash.credList.SingleOrDefault(x => x.Account == tAcc);
 
-            if (c != null)
+            string areYouSureM = "Are you sure you want to delete this credential?";
+            string areYouSureT = "Are you sure?";
+            if (MessageBox.Show(areYouSureM, areYouSureT, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //If user selects yes. deletes credential
             {
-                Dash.credList.Remove(c);
-            }               
+                var c = Dash.credList[rowIndex];
 
-            StorePassword.SaveToCsv(Dash.credList);
-            updateData();
-            dgvCreds.Refresh();
-        }
+                if (c != null)
+                {
+                    Dash.credList.Remove(c);
+                }
 
+                StorePassword.SaveToCsv(Dash.credList);
+                updateData();
+                dgvCreds.Refresh();
+            }
+            //If user selects no
+            else
+            {
+                return;
+            }            
+        }        
 
-
-        int rowIndex = 0;
-        int oldRowIndex;
+        /// <summary>
+        /// Sets the selected credential
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dvgCreds_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             oldRowIndex = rowIndex;
-
-            rowIndex = e.RowIndex;
-            
+            rowIndex = e.RowIndex;            
 
             if (rowIndex != oldRowIndex)
             {
@@ -155,28 +178,6 @@ namespace secPass.UserControls
                 txtUpdatePass.Clear();
                 txtUpdateConfPass.Clear();
             }
-
         }
-
-
-        /*public void setData(List<Credential> source)
-        {
-            credentialBindingSource.DataSource = source;
-        }
-
-        public void cListToDataGrid()
-        {
-
-            var custDataSource = Dash.credList.Select(x => new
-            {
-                Account = x.Account,
-                Password = x.Password,
-            }).ToList();
-
-            //This will assign the datasource. All the columns you listed will show up, and every row
-            //of data in the list will populate into the DataGridView.
-            
-            credentialBindingSource.DataSource = custDataSource;
-        }  */
     }
 }

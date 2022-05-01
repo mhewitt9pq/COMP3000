@@ -21,7 +21,11 @@ namespace secPass.UserControls
         }
         secController obj_aes;
 
-
+        /// <summary>
+        /// Encrypt and save user inputs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool store = false;
@@ -55,7 +59,6 @@ namespace secPass.UserControls
                     //If user selects yes
                     {
                         copyToClip(tRandPass);
-
                     }
                     //If user selects no
                     else
@@ -100,6 +103,12 @@ namespace secPass.UserControls
             }
         }
 
+        /// <summary>
+        /// Encrypt and save to list and csv
+        /// </summary>
+        /// <param name="mastP"></param>
+        /// <param name="Pass"></param>
+        /// <param name="name"></param>
         public void encryptSave(string mastP, string Pass, string name)
         {
             string pass = obj_aes.encrypt(mastP, Pass);
@@ -118,6 +127,11 @@ namespace secPass.UserControls
             txtConfPass.Clear();
         }
 
+        /// <summary>
+        /// Saves list of credentials to csv
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="credData"></param>
         public static void SaveToCsv<T>(List<T> credData)
         {
             string path = Dash.fileName;
@@ -130,6 +144,11 @@ namespace secPass.UserControls
             File.WriteAllLines(path, lines.ToArray());
         }
 
+        /// <summary>
+        /// Gives password strength score
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public static int strengthCheck(string pass)
         {
             //Very weak = 1

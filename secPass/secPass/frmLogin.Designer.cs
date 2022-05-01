@@ -55,7 +55,7 @@
             this.siticonePanel1.Location = new System.Drawing.Point(0, 0);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
-            this.siticonePanel1.Size = new System.Drawing.Size(249, 72);
+            this.siticonePanel1.Size = new System.Drawing.Size(249, 61);
             this.siticonePanel1.TabIndex = 5;
             // 
             // siticonePictureBox1
@@ -67,7 +67,7 @@
             this.siticonePictureBox1.Location = new System.Drawing.Point(56, 3);
             this.siticonePictureBox1.Name = "siticonePictureBox1";
             this.siticonePictureBox1.ShadowDecoration.Parent = this.siticonePictureBox1;
-            this.siticonePictureBox1.Size = new System.Drawing.Size(138, 66);
+            this.siticonePictureBox1.Size = new System.Drawing.Size(138, 58);
             this.siticonePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.siticonePictureBox1.TabIndex = 2;
             this.siticonePictureBox1.TabStop = false;

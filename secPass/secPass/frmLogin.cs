@@ -28,12 +28,21 @@ namespace secPass
             LoginPassword = txtLoginMastP.Text;
         }
 
-
+        /// <summary>
+        /// Shows user help
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblLoginHelp_MouseMove(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(lblLoginHelp, "If you havent logged in previously, please enter a username and master password to identify yourself and encrypt your credentials. You are unable to access or decrypt your data without this information");
         }
 
+        /// <summary>
+        /// Login button opens new form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool empty = false;
@@ -57,6 +66,11 @@ namespace secPass
             }
         }
 
+        /// <summary>
+        /// Closes login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
