@@ -47,7 +47,7 @@ namespace secPass.UserControls
             }
             return randPass.ToString();
         }
-
+        
         /// <summary>
         /// Copies generated password to clipboard
         /// </summary>
