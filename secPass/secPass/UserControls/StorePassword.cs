@@ -246,5 +246,41 @@ namespace secPass.UserControls
             MessageBox.Show("Password copied to clipboard!", "Attention");
 
         }
+
+        /// <summary>
+        /// Shows passwords in plaintext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPass.Checked)
+            {
+                txtPass.UseSystemPasswordChar = false;
+                txtConfPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPass.UseSystemPasswordChar = true;
+                txtConfPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        /// <summary>
+        /// Shows password in plaintext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbMastP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMastP.Checked)
+            {
+                txtMastPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtMastPass.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

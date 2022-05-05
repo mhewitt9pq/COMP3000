@@ -85,7 +85,7 @@
             this.btnGenPass.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenPass.ForeColor = System.Drawing.Color.Black;
             this.btnGenPass.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnGenPass.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
+            this.btnGenPass.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.btnGenPass.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnGenPass.HoverState.Parent = this.btnGenPass;
             this.btnGenPass.Location = new System.Drawing.Point(13, 15);
@@ -111,7 +111,7 @@
             this.btnCopy.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.ForeColor = System.Drawing.Color.Black;
             this.btnCopy.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
+            this.btnCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.btnCopy.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnCopy.HoverState.Parent = this.btnCopy;
             this.btnCopy.Location = new System.Drawing.Point(649, 15);

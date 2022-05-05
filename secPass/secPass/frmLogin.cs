@@ -75,5 +75,22 @@ namespace secPass
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Shows password in plaintext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPass.Checked)
+            {
+                txtLoginMastP.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtLoginMastP.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

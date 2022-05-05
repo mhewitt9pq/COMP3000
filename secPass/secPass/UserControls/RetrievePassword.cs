@@ -179,5 +179,41 @@ namespace secPass.UserControls
                 txtUpdateConfPass.Clear();
             }
         }
+
+        /// <summary>
+        /// Shows passwords in plaintext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPass.Checked)
+            {
+                txtUpdatePass.UseSystemPasswordChar = false;
+                txtUpdateConfPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtUpdatePass.UseSystemPasswordChar = true;
+                txtUpdateConfPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        /// <summary>
+        /// Shows password in plaintext
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbShowMastP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowMastP.Checked)
+            {
+                txtUpdateMastP.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtUpdateMastP.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

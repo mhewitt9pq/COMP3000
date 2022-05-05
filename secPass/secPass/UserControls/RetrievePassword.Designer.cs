@@ -34,11 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCreds = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.lblMastPass = new System.Windows.Forms.Label();
             this.txtUpdateMastP = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.lblMastPass = new System.Windows.Forms.Label();
             this.lblRetrievePass = new System.Windows.Forms.Label();
             this.siticonePanel6 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.cbShowPass = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblConfPass = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbShowMastP = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.accountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.credentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -131,8 +132,8 @@
             this.siticonePanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.siticonePanel2.BorderRadius = 5;
             this.siticonePanel2.BorderThickness = 2;
-            this.siticonePanel2.Controls.Add(this.lblMastPass);
             this.siticonePanel2.Controls.Add(this.txtUpdateMastP);
+            this.siticonePanel2.Controls.Add(this.lblMastPass);
             this.siticonePanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(196)))), ((int)(((byte)(218)))));
             this.siticonePanel2.Location = new System.Drawing.Point(627, 3);
             this.siticonePanel2.Name = "siticonePanel2";
@@ -140,23 +141,11 @@
             this.siticonePanel2.Size = new System.Drawing.Size(197, 79);
             this.siticonePanel2.TabIndex = 6;
             // 
-            // lblMastPass
-            // 
-            this.lblMastPass.AutoSize = true;
-            this.lblMastPass.BackColor = System.Drawing.Color.Transparent;
-            this.lblMastPass.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMastPass.ForeColor = System.Drawing.Color.Black;
-            this.lblMastPass.Location = new System.Drawing.Point(16, 9);
-            this.lblMastPass.Name = "lblMastPass";
-            this.lblMastPass.Size = new System.Drawing.Size(168, 18);
-            this.lblMastPass.TabIndex = 7;
-            this.lblMastPass.Text = "Master Password:";
-            // 
             // txtUpdateMastP
             // 
             this.txtUpdateMastP.Animated = true;
             this.txtUpdateMastP.BackColor = System.Drawing.Color.Transparent;
-            this.txtUpdateMastP.BorderColor = System.Drawing.Color.Black;
+            this.txtUpdateMastP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.txtUpdateMastP.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUpdateMastP.DefaultText = "";
             this.txtUpdateMastP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -170,20 +159,33 @@
             this.txtUpdateMastP.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtUpdateMastP.FocusedState.Parent = this.txtUpdateMastP;
             this.txtUpdateMastP.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtUpdateMastP.ForeColor = System.Drawing.Color.White;
+            this.txtUpdateMastP.ForeColor = System.Drawing.Color.Black;
             this.txtUpdateMastP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUpdateMastP.HoverState.Parent = this.txtUpdateMastP;
-            this.txtUpdateMastP.Location = new System.Drawing.Point(16, 38);
-            this.txtUpdateMastP.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUpdateMastP.Location = new System.Drawing.Point(26, 36);
+            this.txtUpdateMastP.Margin = new System.Windows.Forms.Padding(10);
             this.txtUpdateMastP.Name = "txtUpdateMastP";
-            this.txtUpdateMastP.PasswordChar = '*';
+            this.txtUpdateMastP.Padding = new System.Windows.Forms.Padding(50);
+            this.txtUpdateMastP.PasswordChar = '\0';
             this.txtUpdateMastP.PlaceholderText = "";
             this.txtUpdateMastP.SelectedText = "";
             this.txtUpdateMastP.ShadowDecoration.Parent = this.txtUpdateMastP;
-            this.txtUpdateMastP.Size = new System.Drawing.Size(165, 29);
+            this.txtUpdateMastP.Size = new System.Drawing.Size(144, 36);
             this.txtUpdateMastP.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtUpdateMastP.TabIndex = 3;
-            this.txtUpdateMastP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUpdateMastP.TabIndex = 22;
+            this.txtUpdateMastP.UseSystemPasswordChar = true;
+            // 
+            // lblMastPass
+            // 
+            this.lblMastPass.AutoSize = true;
+            this.lblMastPass.BackColor = System.Drawing.Color.Transparent;
+            this.lblMastPass.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMastPass.ForeColor = System.Drawing.Color.Black;
+            this.lblMastPass.Location = new System.Drawing.Point(16, 9);
+            this.lblMastPass.Name = "lblMastPass";
+            this.lblMastPass.Size = new System.Drawing.Size(168, 18);
+            this.lblMastPass.TabIndex = 7;
+            this.lblMastPass.Text = "Master Password:";
             // 
             // lblRetrievePass
             // 
@@ -201,7 +203,7 @@
             this.siticonePanel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.siticonePanel6.BorderRadius = 15;
             this.siticonePanel6.BorderThickness = 2;
-            this.siticonePanel6.Controls.Add(this.siticoneButton1);
+            this.siticonePanel6.Controls.Add(this.cbShowPass);
             this.siticonePanel6.Controls.Add(this.label2);
             this.siticonePanel6.Controls.Add(this.lblName);
             this.siticonePanel6.Controls.Add(this.lblConfPass);
@@ -210,36 +212,33 @@
             this.siticonePanel6.Controls.Add(this.txtUpdateConfPass);
             this.siticonePanel6.Controls.Add(this.txtUpdatePass);
             this.siticonePanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
-            this.siticonePanel6.Location = new System.Drawing.Point(283, 245);
+            this.siticonePanel6.Location = new System.Drawing.Point(283, 218);
             this.siticonePanel6.Name = "siticonePanel6";
             this.siticonePanel6.ShadowDecoration.Parent = this.siticonePanel6;
-            this.siticonePanel6.Size = new System.Drawing.Size(338, 157);
+            this.siticonePanel6.Size = new System.Drawing.Size(338, 184);
             this.siticonePanel6.TabIndex = 14;
             // 
-            // siticoneButton1
+            // cbShowPass
             // 
-            this.siticoneButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
-            this.siticoneButton1.BorderThickness = 1;
-            this.siticoneButton1.CheckedState.Parent = this.siticoneButton1;
-            this.siticoneButton1.CustomImages.Parent = this.siticoneButton1;
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.DisabledState.Parent = this.siticoneButton1;
-            this.siticoneButton1.FillColor = System.Drawing.Color.Transparent;
-            this.siticoneButton1.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton1.ForeColor = System.Drawing.Color.Black;
-            this.siticoneButton1.HoverState.BorderColor = System.Drawing.Color.White;
-            this.siticoneButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
-            this.siticoneButton1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.HoverState.Parent = this.siticoneButton1;
-            this.siticoneButton1.Location = new System.Drawing.Point(21, 167);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.ShadowDecoration.Parent = this.siticoneButton1;
-            this.siticoneButton1.Size = new System.Drawing.Size(180, 45);
-            this.siticoneButton1.TabIndex = 13;
-            this.siticoneButton1.Text = "Save";
+            this.cbShowPass.AutoSize = true;
+            this.cbShowPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
+            this.cbShowPass.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowPass.CheckedState.BorderRadius = 0;
+            this.cbShowPass.CheckedState.BorderThickness = 0;
+            this.cbShowPass.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowPass.ForeColor = System.Drawing.Color.Black;
+            this.cbShowPass.Location = new System.Drawing.Point(184, 149);
+            this.cbShowPass.Name = "cbShowPass";
+            this.cbShowPass.Size = new System.Drawing.Size(115, 17);
+            this.cbShowPass.TabIndex = 22;
+            this.cbShowPass.Text = "Show Password";
+            this.cbShowPass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowPass.UncheckedState.BorderRadius = 0;
+            this.cbShowPass.UncheckedState.BorderThickness = 0;
+            this.cbShowPass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowPass.UseVisualStyleBackColor = false;
+            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
             // 
             // label2
             // 
@@ -281,6 +280,7 @@
             // 
             this.txtUpdateName.Animated = true;
             this.txtUpdateName.BackColor = System.Drawing.Color.Transparent;
+            this.txtUpdateName.BorderColor = System.Drawing.Color.Black;
             this.txtUpdateName.BorderThickness = 0;
             this.txtUpdateName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUpdateName.DefaultText = "";
@@ -289,14 +289,14 @@
             this.txtUpdateName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUpdateName.DisabledState.Parent = this.txtUpdateName;
             this.txtUpdateName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUpdateName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
+            this.txtUpdateName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.txtUpdateName.FocusedState.BorderColor = System.Drawing.Color.White;
             this.txtUpdateName.FocusedState.FillColor = System.Drawing.Color.White;
             this.txtUpdateName.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtUpdateName.FocusedState.Parent = this.txtUpdateName;
             this.txtUpdateName.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtUpdateName.ForeColor = System.Drawing.Color.White;
-            this.txtUpdateName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUpdateName.ForeColor = System.Drawing.Color.Black;
+            this.txtUpdateName.HoverState.BorderColor = System.Drawing.Color.White;
             this.txtUpdateName.HoverState.Parent = this.txtUpdateName;
             this.txtUpdateName.Location = new System.Drawing.Point(160, 39);
             this.txtUpdateName.Margin = new System.Windows.Forms.Padding(4);
@@ -325,6 +325,7 @@
             // 
             this.txtUpdateConfPass.Animated = true;
             this.txtUpdateConfPass.BackColor = System.Drawing.Color.Transparent;
+            this.txtUpdateConfPass.BorderColor = System.Drawing.Color.Black;
             this.txtUpdateConfPass.BorderThickness = 0;
             this.txtUpdateConfPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUpdateConfPass.DefaultText = "";
@@ -333,14 +334,14 @@
             this.txtUpdateConfPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUpdateConfPass.DisabledState.Parent = this.txtUpdateConfPass;
             this.txtUpdateConfPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUpdateConfPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
+            this.txtUpdateConfPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.txtUpdateConfPass.FocusedState.BorderColor = System.Drawing.Color.White;
             this.txtUpdateConfPass.FocusedState.FillColor = System.Drawing.Color.White;
             this.txtUpdateConfPass.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtUpdateConfPass.FocusedState.Parent = this.txtUpdateConfPass;
             this.txtUpdateConfPass.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtUpdateConfPass.ForeColor = System.Drawing.Color.White;
-            this.txtUpdateConfPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUpdateConfPass.ForeColor = System.Drawing.Color.Black;
+            this.txtUpdateConfPass.HoverState.BorderColor = System.Drawing.Color.White;
             this.txtUpdateConfPass.HoverState.Parent = this.txtUpdateConfPass;
             this.txtUpdateConfPass.Location = new System.Drawing.Point(160, 113);
             this.txtUpdateConfPass.Margin = new System.Windows.Forms.Padding(4);
@@ -352,11 +353,13 @@
             this.txtUpdateConfPass.Size = new System.Drawing.Size(165, 29);
             this.txtUpdateConfPass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateConfPass.TabIndex = 9;
+            this.txtUpdateConfPass.UseSystemPasswordChar = true;
             // 
             // txtUpdatePass
             // 
             this.txtUpdatePass.Animated = true;
             this.txtUpdatePass.BackColor = System.Drawing.Color.Transparent;
+            this.txtUpdatePass.BorderColor = System.Drawing.Color.Black;
             this.txtUpdatePass.BorderThickness = 0;
             this.txtUpdatePass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUpdatePass.DefaultText = "";
@@ -365,14 +368,14 @@
             this.txtUpdatePass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUpdatePass.DisabledState.Parent = this.txtUpdatePass;
             this.txtUpdatePass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUpdatePass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
+            this.txtUpdatePass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(117)))), ((int)(((byte)(167)))));
             this.txtUpdatePass.FocusedState.BorderColor = System.Drawing.Color.White;
             this.txtUpdatePass.FocusedState.FillColor = System.Drawing.Color.White;
             this.txtUpdatePass.FocusedState.ForeColor = System.Drawing.Color.Black;
             this.txtUpdatePass.FocusedState.Parent = this.txtUpdatePass;
             this.txtUpdatePass.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.txtUpdatePass.ForeColor = System.Drawing.Color.White;
-            this.txtUpdatePass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUpdatePass.ForeColor = System.Drawing.Color.Black;
+            this.txtUpdatePass.HoverState.BorderColor = System.Drawing.Color.White;
             this.txtUpdatePass.HoverState.Parent = this.txtUpdatePass;
             this.txtUpdatePass.Location = new System.Drawing.Point(160, 76);
             this.txtUpdatePass.Margin = new System.Windows.Forms.Padding(4);
@@ -384,6 +387,7 @@
             this.txtUpdatePass.Size = new System.Drawing.Size(165, 29);
             this.txtUpdatePass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdatePass.TabIndex = 10;
+            this.txtUpdatePass.UseSystemPasswordChar = true;
             // 
             // lblCredTitle
             // 
@@ -472,7 +476,7 @@
             this.btnDisplay.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
             this.btnDisplay.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnDisplay.HoverState.Parent = this.btnDisplay;
-            this.btnDisplay.Location = new System.Drawing.Point(656, 88);
+            this.btnDisplay.Location = new System.Drawing.Point(656, 114);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnDisplay.ShadowDecoration.Parent = this.btnDisplay;
@@ -487,7 +491,7 @@
             this.siticonePanel1.BorderColor = System.Drawing.Color.White;
             this.siticonePanel1.BorderThickness = 1;
             this.siticonePanel1.Controls.Add(this.label5);
-            this.siticonePanel1.Location = new System.Drawing.Point(280, 74);
+            this.siticonePanel1.Location = new System.Drawing.Point(280, 47);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
             this.siticonePanel1.Size = new System.Drawing.Size(341, 165);
@@ -497,7 +501,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.LightGray;
-            this.label5.Location = new System.Drawing.Point(7, 9);
+            this.label5.Location = new System.Drawing.Point(7, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(334, 153);
             this.label5.TabIndex = 17;
@@ -515,6 +519,28 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "To delete, select an account and press delete";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbShowMastP
+            // 
+            this.cbShowMastP.AutoSize = true;
+            this.cbShowMastP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.cbShowMastP.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowMastP.CheckedState.BorderRadius = 0;
+            this.cbShowMastP.CheckedState.BorderThickness = 0;
+            this.cbShowMastP.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowMastP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowMastP.ForeColor = System.Drawing.Color.White;
+            this.cbShowMastP.Location = new System.Drawing.Point(672, 88);
+            this.cbShowMastP.Name = "cbShowMastP";
+            this.cbShowMastP.Size = new System.Drawing.Size(115, 17);
+            this.cbShowMastP.TabIndex = 22;
+            this.cbShowMastP.Text = "Show Password";
+            this.cbShowMastP.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowMastP.UncheckedState.BorderRadius = 0;
+            this.cbShowMastP.UncheckedState.BorderThickness = 0;
+            this.cbShowMastP.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowMastP.UseVisualStyleBackColor = false;
+            this.cbShowMastP.CheckedChanged += new System.EventHandler(this.cbShowMastP_CheckedChanged);
             // 
             // accountDataGridViewTextBoxColumn
             // 
@@ -537,6 +563,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
+            this.Controls.Add(this.cbShowMastP);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.siticonePanel6);
             this.Controls.Add(this.siticonePanel1);
@@ -566,10 +593,8 @@
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView dgvCreds;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private System.Windows.Forms.Label lblMastPass;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtUpdateMastP;
         private System.Windows.Forms.Label lblRetrievePass;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel6;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblConfPass;
@@ -587,5 +612,8 @@
         public System.Windows.Forms.BindingSource credentialBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtUpdateMastP;
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox cbShowPass;
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox cbShowMastP;
     }
 }

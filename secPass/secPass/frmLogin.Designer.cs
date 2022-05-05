@@ -39,6 +39,7 @@
             this.btnCancel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.lblLoginHelp = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cbShowPass = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             this.siticonePanel1.Location = new System.Drawing.Point(0, 0);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
-            this.siticonePanel1.Size = new System.Drawing.Size(249, 61);
+            this.siticonePanel1.Size = new System.Drawing.Size(249, 72);
             this.siticonePanel1.TabIndex = 5;
             // 
             // siticonePictureBox1
@@ -64,10 +65,10 @@
             this.siticonePictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.siticonePictureBox1.Image = global::secPass.Properties.Resources.Logo;
             this.siticonePictureBox1.ImageRotate = 0F;
-            this.siticonePictureBox1.Location = new System.Drawing.Point(56, 3);
+            this.siticonePictureBox1.Location = new System.Drawing.Point(27, -6);
             this.siticonePictureBox1.Name = "siticonePictureBox1";
             this.siticonePictureBox1.ShadowDecoration.Parent = this.siticonePictureBox1;
-            this.siticonePictureBox1.Size = new System.Drawing.Size(138, 58);
+            this.siticonePictureBox1.Size = new System.Drawing.Size(194, 86);
             this.siticonePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.siticonePictureBox1.TabIndex = 2;
             this.siticonePictureBox1.TabStop = false;
@@ -102,13 +103,14 @@
             this.txtLoginMastP.IconLeftSize = new System.Drawing.Size(15, 15);
             this.txtLoginMastP.Location = new System.Drawing.Point(26, 191);
             this.txtLoginMastP.Name = "txtLoginMastP";
-            this.txtLoginMastP.PasswordChar = '*';
+            this.txtLoginMastP.PasswordChar = '\0';
             this.txtLoginMastP.PlaceholderText = "Enter your master password";
             this.txtLoginMastP.SelectedText = "";
             this.txtLoginMastP.ShadowDecoration.Parent = this.txtLoginMastP;
             this.txtLoginMastP.Size = new System.Drawing.Size(200, 39);
             this.txtLoginMastP.TabIndex = 2;
             this.txtLoginMastP.TextOffset = new System.Drawing.Point(7, 0);
+            this.txtLoginMastP.UseSystemPasswordChar = true;
             // 
             // txtLoginUserName
             // 
@@ -208,12 +210,33 @@
             this.lblLoginHelp.Text = "?";
             this.lblLoginHelp.MouseHover += new System.EventHandler(this.lblLoginHelp_MouseMove);
             // 
+            // cbShowPass
+            // 
+            this.cbShowPass.AutoSize = true;
+            this.cbShowPass.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowPass.CheckedState.BorderRadius = 0;
+            this.cbShowPass.CheckedState.BorderThickness = 0;
+            this.cbShowPass.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowPass.ForeColor = System.Drawing.Color.LightGray;
+            this.cbShowPass.Location = new System.Drawing.Point(26, 237);
+            this.cbShowPass.Name = "cbShowPass";
+            this.cbShowPass.Size = new System.Drawing.Size(102, 17);
+            this.cbShowPass.TabIndex = 18;
+            this.cbShowPass.Text = "Show Password";
+            this.cbShowPass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowPass.UncheckedState.BorderRadius = 0;
+            this.cbShowPass.UncheckedState.BorderThickness = 0;
+            this.cbShowPass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(249, 312);
+            this.Controls.Add(this.cbShowPass);
             this.Controls.Add(this.lblLoginHelp);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -242,5 +265,6 @@
         private System.Windows.Forms.Label lblLoginHelp;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnCancel;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox cbShowPass;
     }
 }
