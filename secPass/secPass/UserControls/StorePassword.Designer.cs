@@ -143,7 +143,7 @@
             this.txtPass.ShadowDecoration.Parent = this.txtPass;
             this.txtPass.Size = new System.Drawing.Size(165, 29);
             this.txtPass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtPass.TabIndex = 10;
+            this.txtPass.TabIndex = 5;
             this.txtPass.UseSystemPasswordChar = true;
             // 
             // txtConfPass
@@ -179,7 +179,7 @@
             this.txtConfPass.ShadowDecoration.Parent = this.txtConfPass;
             this.txtConfPass.Size = new System.Drawing.Size(165, 29);
             this.txtConfPass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtConfPass.TabIndex = 9;
+            this.txtConfPass.TabIndex = 6;
             this.txtConfPass.UseSystemPasswordChar = true;
             // 
             // txtName
@@ -213,7 +213,7 @@
             this.txtName.ShadowDecoration.Parent = this.txtName;
             this.txtName.Size = new System.Drawing.Size(165, 29);
             this.txtName.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtName.TabIndex = 8;
+            this.txtName.TabIndex = 4;
             // 
             // siticonePanel2
             // 
@@ -261,7 +261,7 @@
             this.txtMastPass.ShadowDecoration.Parent = this.txtMastPass;
             this.txtMastPass.Size = new System.Drawing.Size(144, 36);
             this.txtMastPass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtMastPass.TabIndex = 21;
+            this.txtMastPass.TabIndex = 3;
             this.txtMastPass.UseSystemPasswordChar = true;
             // 
             // lblMastPass

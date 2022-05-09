@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCreds = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.accountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.credentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.txtUpdateMastP = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.lblMastPass = new System.Windows.Forms.Label();
@@ -54,14 +57,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbShowMastP = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
-            this.accountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.credentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCreds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).BeginInit();
             this.siticonePanel2.SuspendLayout();
             this.siticonePanel6.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCreds
@@ -126,6 +126,22 @@
             this.dgvCreds.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCreds.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCreds_CellClick);
             // 
+            // accountDataGridViewTextBoxColumn
+            // 
+            this.accountDataGridViewTextBoxColumn.DataPropertyName = "Account";
+            this.accountDataGridViewTextBoxColumn.HeaderText = "Account";
+            this.accountDataGridViewTextBoxColumn.Name = "accountDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // credentialBindingSource
+            // 
+            this.credentialBindingSource.DataSource = typeof(secPass.Credential);
+            // 
             // siticonePanel2
             // 
             this.siticonePanel2.BackColor = System.Drawing.Color.Transparent;
@@ -172,7 +188,7 @@
             this.txtUpdateMastP.ShadowDecoration.Parent = this.txtUpdateMastP;
             this.txtUpdateMastP.Size = new System.Drawing.Size(144, 36);
             this.txtUpdateMastP.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtUpdateMastP.TabIndex = 22;
+            this.txtUpdateMastP.TabIndex = 7;
             this.txtUpdateMastP.UseSystemPasswordChar = true;
             // 
             // lblMastPass
@@ -352,7 +368,7 @@
             this.txtUpdateConfPass.ShadowDecoration.Parent = this.txtUpdateConfPass;
             this.txtUpdateConfPass.Size = new System.Drawing.Size(165, 29);
             this.txtUpdateConfPass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtUpdateConfPass.TabIndex = 9;
+            this.txtUpdateConfPass.TabIndex = 10;
             this.txtUpdateConfPass.UseSystemPasswordChar = true;
             // 
             // txtUpdatePass
@@ -386,7 +402,7 @@
             this.txtUpdatePass.ShadowDecoration.Parent = this.txtUpdatePass;
             this.txtUpdatePass.Size = new System.Drawing.Size(165, 29);
             this.txtUpdatePass.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
-            this.txtUpdatePass.TabIndex = 10;
+            this.txtUpdatePass.TabIndex = 9;
             this.txtUpdatePass.UseSystemPasswordChar = true;
             // 
             // lblCredTitle
@@ -542,22 +558,6 @@
             this.cbShowMastP.UseVisualStyleBackColor = false;
             this.cbShowMastP.CheckedChanged += new System.EventHandler(this.cbShowMastP_CheckedChanged);
             // 
-            // accountDataGridViewTextBoxColumn
-            // 
-            this.accountDataGridViewTextBoxColumn.DataPropertyName = "Account";
-            this.accountDataGridViewTextBoxColumn.HeaderText = "Account";
-            this.accountDataGridViewTextBoxColumn.Name = "accountDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            // 
-            // credentialBindingSource
-            // 
-            this.credentialBindingSource.DataSource = typeof(secPass.Credential);
-            // 
             // RetrievePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,12 +577,12 @@
             this.Name = "RetrievePassword";
             this.Size = new System.Drawing.Size(825, 402);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCreds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
             this.siticonePanel2.PerformLayout();
             this.siticonePanel6.ResumeLayout(false);
             this.siticonePanel6.PerformLayout();
             this.siticonePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.credentialBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
